@@ -10,7 +10,12 @@ This project is a football manager game inspired by PES 2017 and Top Eleven. The
 ![Football Manager Class Diagram ](https://user-images.githubusercontent.com/53413092/189932003-d277cfec-d8dd-4fdf-8d73-eaae94975af2.png)
 
 ### Behaviour Tree
+The behaviour tree is a custom AI behaviour designed to control the movement of players around the pitch
 
+## Behaviour Tree Diagram
+![Football Manager](https://github.com/user-attachments/assets/490c0247-1944-4735-8a36-ee4f5de434d4)
+
+## Behaviour Tree Implementation
 ![FM_clone - bT](https://user-images.githubusercontent.com/53413092/185654892-f1060bd6-4dc5-44bd-938f-37da3f4d1508.png)
 
 ### SQLITE
