@@ -4,10 +4,16 @@ var playerscript = load("res://player/player.gd")
 
 var kickOff:bool
 
+func _ready():
+	$"Kick-off".enable = false
+	$Timer.wait_time = 2.0
+	$Timer.start()
 
 func task_kickOff(task):
 	var player = get_parent()
 	var passTarget = player.findPlayer("CMF")
+	while (!get_parent().withBall):
+		get_parent().move(WorldSpace.ball.global_position)
 	passBall(passTarget)
 	WorldSpace.matchStart = true
 	task.succeed()
@@ -41,6 +47,10 @@ func task_condPassBall(task):
 
 func task_condCrossBall(task):
 	pass
+
+func task_progressBall(task):
+	var targetPoints = get_parent().getPath(Vector2(625, 246))
+	print(targetPoints)
 
 func task_condProgressBall(task):
 	pass
@@ -104,7 +114,6 @@ func task_closeOppPassTarget(task):
 
 func task_withBall(task):
 	var player = get_parent()
-	var ball = player.ball
 	if player.withBall():
 		task.succeed()
 	else:
@@ -133,9 +142,16 @@ func task_move(task):
 	pass
 
 func task_maintainPosition(task):
-	pass
+#	var homePosUpdate = get_parent().calculate_optimal_position()
+#	var targetPoints = get_parent().getPath(Vector2(457, 261))
+	get_parent().moveWithPath(Vector2(457, 261))
+	task.succeed()
 
 func passBall(target):
 	var player = get_parent()
 	var ball = player.ball
 	ball.moveBall(target,10)
+
+
+func _on_Timer_timeout():
+	$"Kick-off".enable = true

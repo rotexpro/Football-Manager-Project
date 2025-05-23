@@ -24,6 +24,7 @@ export(String) var playerName
 export(String) var country
 export(int) var age
 export(roleSpecs) var role
+export(roleSpecs) var tempRole 
 export(int) var attack
 export(int) var dribble
 export(int) var pas
@@ -52,6 +53,7 @@ func _init(_name:String, _country:String, _age:int, _role:String, _shot:int, _pa
 	country = _country
 	age = _age
 	role = _role
+	tempRole = role
 	shot = _shot
 	pas = _pass
 	cross = _cross

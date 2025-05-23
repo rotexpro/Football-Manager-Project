@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://world/shot area.tscn" type="PackedScene" id=1]
+[ext_resource path="res://world/Scenes/shot area.tscn" type="PackedScene" id=1]
 [ext_resource path="res://MatchVariables/priority-shot-area.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]

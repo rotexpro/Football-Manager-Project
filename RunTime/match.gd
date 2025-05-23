@@ -13,21 +13,25 @@ var ball = preload("res://MatchVariables/Scenes/Ball.tscn").instance()
 func _ready():
 	self.add_child(ball)
 	ball.global_position = $"Control/pitch-scene".centerPos
+	WorldSpace.CENTER_POSITION = $"Control/pitch-scene".centerPos
 	WorldSpace.ball = ball
 	
 	var homeFieldpositions = $"Control/pitch-scene".homepositions()
 	var awayFieldpositions = $"Control/pitch-scene".awaypositions()
 	WorldSpace.awayGoal = $"Control/pitch-scene".awayGoal
-	var squad = Database.getTeam("TOMI")
-	squad = TeamData.createOppData(squad)
+	
+	var homeSquad = Database.clubTeam
+	homeSquad = TeamData.createTeamData(homeSquad).startPlayers
+	
+	var oppSquad = Database.getTeam("TOMI")
+	oppSquad = TeamData.createTeamData(oppSquad).startPlayers
 	
 	var grid = Grid.new($"Control/pitch-scene".gridPos.get("START"), $"Control/pitch-scene".gridPos.get("END"))
 	grid.createGrid()
-	grid.setAstarGrid()
 	WorldSpace.grid = grid.getAstarGrid()
 	
-	var homeTeam = Team($HomeTeam, homeFieldpositions, TeamData.squadPlayers, TeamCreator.matchPlace.HOME)
-	var awayTeam = Team($AwayTeam, awayFieldpositions, squad, TeamCreator.matchPlace.AWAY)
+	var homeTeam = Team($HomeTeam, homeFieldpositions, homeSquad, TeamCreator.matchPlace.HOME)
+	var awayTeam = Team($AwayTeam, awayFieldpositions, oppSquad, TeamCreator.matchPlace.AWAY)
 	
 	var allPlayers:Array
 	allPlayers.append_array(homeTeam)

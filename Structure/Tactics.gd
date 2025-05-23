@@ -22,7 +22,6 @@ export(positioning) var flexibility
 export(markingStyle) var marking
 
 var attackBias: float = 0.4
-var pressureBias: float = 0.3
 
 var supportRange:float = 0.5  
 

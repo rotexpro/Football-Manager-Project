@@ -20,22 +20,7 @@ margin_bottom = 40.0
 margin_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="Control/HBoxContainer/VBoxContainer"]
-margin_left = 1.0
-margin_right = 927.0
-margin_bottom = 428.0
 color = Color( 0, 0.552941, 0.027451, 1 )
-
-[node name="VBar" type="ColorRect" parent="Control/HBoxContainer/VBoxContainer/ColorRect"]
-margin_left = 765.0
-margin_right = 770.0
-margin_bottom = 428.0
-color = Color( 0, 0.133333, 0.054902, 1 )
-
-[node name="HBar" type="ColorRect" parent="Control/HBoxContainer/VBoxContainer/ColorRect"]
-margin_top = 378.0
-margin_right = 765.0
-margin_bottom = 383.0
-color = Color( 0, 0.133333, 0.054902, 1 )
 
 [node name="football pitch" type="Sprite" parent="Control/HBoxContainer/VBoxContainer"]
 scale = Vector2( 1.005, 0.99 )
@@ -80,22 +65,10 @@ position = Vector2( 378.564, 188.871 )
 [node name="CB-mid" type="Position2D" parent="Control/HBoxContainer/VBoxContainer/football pitch/home-match-pos/CB"]
 position = Vector2( 161.564, 188.871 )
 
-[node name="CB-right" type="Position2D" parent="Control/HBoxContainer/VBoxContainer/football pitch/home-match-pos/CB"]
-position = Vector2( 161.564, 252.871 )
-
-[node name="CB-left" type="Position2D" parent="Control/HBoxContainer/VBoxContainer/football pitch/home-match-pos/CB"]
-position = Vector2( 161.564, 124.871 )
-
 [node name="CDM" type="Node2D" parent="Control/HBoxContainer/VBoxContainer/football pitch/home-match-pos"]
 
 [node name="CDM-mid" type="Position2D" parent="Control/HBoxContainer/VBoxContainer/football pitch/home-match-pos/CDM"]
 position = Vector2( 266.564, 188.871 )
-
-[node name="CDM-left" type="Position2D" parent="Control/HBoxContainer/VBoxContainer/football pitch/home-match-pos/CDM"]
-position = Vector2( 266.564, 252.871 )
-
-[node name="CDM-right" type="Position2D" parent="Control/HBoxContainer/VBoxContainer/football pitch/home-match-pos/CDM"]
-position = Vector2( 266.564, 124.871 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/HBoxContainer"]
 margin_left = 4.0

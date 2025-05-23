@@ -29,7 +29,7 @@ func createTeam(positions:Dictionary, squadPlayers, matchplace) -> Array:
 
 func setPosition(positions,player,data,matchplace):
 	player.stats = data
-	var role:String = player.stats.role
+	var role:String = player.stats.tempRole
 	var side = player.stats.position
 	match side:
 		positionSpecs.LEFT:

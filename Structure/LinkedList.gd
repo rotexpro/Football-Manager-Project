@@ -29,9 +29,6 @@ func addFirst(val):
 		new_head.next = head
 		tail = head
 		head = new_head
-		
-		
-		
 		print("data added")
 	size += 1
 

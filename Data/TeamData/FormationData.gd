@@ -5,6 +5,7 @@ class_name Formation
 #var formation = "F433"
 var formation
 
+var gk:int
 var rb:int
 var lb:int
 var cb:int
@@ -42,6 +43,7 @@ func setRoleNumber():
 		formations.F442:
 			pass
 		_:
+			gk = 1
 			rb = 1
 			lb = 1
 			cb = 2
@@ -54,12 +56,13 @@ func setRoleNumber():
 			rwf = 1
 			ss = 0
 			cf = 1
-	var total = 1 + cb + lb + rb + cdm + cmf + lmf + rmf + amf + lwf + rwf + ss + cf
+	var total = gk + cb + lb + rb + cdm + cmf + lmf + rmf + amf + lwf + rwf + ss + cf
 	if total < 11 or total > 11:
 		printerr("Number of Players doesn't correspond")
 	print("Roles have been set")
 	
 	roles = {
+		"GK": gk,
 		"CB": cb,
 		"RB": rb,
 		"LB": lb,

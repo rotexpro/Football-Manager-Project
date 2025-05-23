@@ -42,17 +42,24 @@ margin_right = 426.0
 margin_bottom = 156.0
 text = "Match"
 
-[node name="Training" type="Button" parent="VBoxContainer"]
+[node name="Squad" type="Button" parent="VBoxContainer"]
 margin_top = 176.0
 margin_right = 426.0
 margin_bottom = 196.0
+text = "Squad Management"
+expand_icon = true
+
+[node name="Training" type="Button" parent="VBoxContainer"]
+margin_top = 216.0
+margin_right = 426.0
+margin_bottom = 236.0
 text = "Training"
 expand_icon = true
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
-margin_top = 216.0
+margin_top = 256.0
 margin_right = 426.0
-margin_bottom = 264.0
+margin_bottom = 304.0
 custom_colors/font_color = Color( 0.635294, 0.635294, 0.635294, 1 )
 text = "The match scene is currently incomplete
 
@@ -60,4 +67,5 @@ try the training scene as that is most complete"
 uppercase = true
 
 [connection signal="pressed" from="VBoxContainer/Match" to="." method="_on_Match_pressed"]
+[connection signal="pressed" from="VBoxContainer/Squad" to="." method="_on_Squad_pressed"]
 [connection signal="pressed" from="VBoxContainer/Training" to="." method="_on_Training_pressed"]

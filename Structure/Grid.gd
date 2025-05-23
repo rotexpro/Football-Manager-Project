@@ -57,6 +57,7 @@ func createGrid():
 			else:
 				tempGrid.append(tempGrid[x-1] + Vector2(width, 0))
 		grid.append(tempGrid)
+	setAstarGrid()
 
 func setAstarGrid():
 	var temparray:Array = []

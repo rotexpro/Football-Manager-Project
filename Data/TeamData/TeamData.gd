@@ -3,22 +3,98 @@ extends Node
 var ratingLinkedList:Dictionary
 var ratingArray:Dictionary
 
-var squadPlayers:Array
-var squadPlayerDic:Dictionary
+var startPlayers:Array
+var benchPlayers:Array
+var reservePlayers:Array
 
-var teamPlayers = Database.clubTeam
+var formation = Formation.new()
+
+var teamPlayers:Array
 
 var tactics:Tactics setget setTactics
 
-func _ready():
-	sortTopEleven()
-	setSquadPlayers()
+class fullSquad:
+	var startPlayers:Array
+	var benchPlayers:Array
+	var reservePlayers:Array
+	
+	func _init(_staters:Array, _bench:Array, _reserve:Array):
+		startPlayers = _staters
+		benchPlayers = _bench
+		reservePlayers = _reserve
 
-func createOppData(team:Array):
+enum position{
+	starter
+	bench
+	reserves
+}
+
+func createTeamData(team:Array):
+	startPlayers.clear()
+	benchPlayers.clear()
+	reservePlayers.clear()
 	teamPlayers = team
 	sortTopEleven()
-	setSquadPlayers()
-	return squadPlayers
+	setstartPlayers()
+	setBenchPlayers()
+	setReservePlayers()
+	var squad = fullSquad.new(startPlayers, benchPlayers, reservePlayers)
+	return squad
+
+func replacePlayer(position1:int, position2:int , player1:Stats, player2:Stats, starters:Array, bench:Array, reserves:Array):
+	var position:int
+	var idx:int
+	if position1 == 1 or position2 == 1:
+		position = 1
+	else:
+		position = 2
+	print_debug("Starting replacing process")
+	match position:
+		1:
+			var tempRole: String
+			if starters.has(player1):
+				tempRole = player1.role
+				player2.tempRole = tempRole
+				idx = starters.find(player1)
+				starters[idx] = player2
+				if bench.has(player2):
+					idx = bench.find(player2)
+					bench[idx] = player1
+				elif reserves.has(player2):
+					idx = reserves.find(player2)
+					reserves[idx] = player1
+				print("Player has been replaced")
+			elif starters.has(player2):
+				tempRole = player1.role
+				player2.tempRole = tempRole
+				idx = starters.find(player1)
+				starters[idx] = player2
+				if bench.has(player1):
+					idx = bench.find(player1)
+					bench[idx] = player2
+				elif reserves.has(player1):
+					idx = reserves.find(player1)
+					reserves[idx] = player2
+				print("Player has been replaced")
+		_:
+			if bench.has(player2):
+				idx = bench.find(player2)
+				bench[idx] = player1
+				if starters.has(player1):
+					idx = starters.find(player1)
+					starters[idx] = player2
+				elif reserves.has(player1):
+					idx = reserves.find(player1)
+					reserves[idx] = player2
+			elif bench.has(player1):
+				idx = bench.find(player1)
+				bench[idx] = player2
+				if starters.has(player2):
+					idx = starters.find(player2)
+					starters[idx] = player1
+				elif reserves.has(player2):
+					idx = reserves.find(player2)
+					reserves[idx] = player1
 
 func sortTopEleven():
 	print("initializing rating list with LinkedList")
@@ -57,21 +133,15 @@ func sortTopEleven():
 	setLinkedListRoles()
 	setArrayRoles()
 
-func setSquadPlayers():
+func setstartPlayers():
 	print_debug("initializing formation data")
-	var formation = Formation.new()
 	var position = TeamCreator.positionSpecs
 	
 	print("adding players to squad i.e top eleven")
-	#adding GK to squad
-	var gk = ratingArray.get("GK")[0]
-	gk.position = position.DEFAULT
-	squadPlayers.append(gk)
 	
-	#adding other players
+	#adding players
 	print_debug("getting roles from player Stats class")
 	var roles:Array = Stats.roleSpecs.keys()
-	roles.pop_front()
 	for val in roles:
 		var role:String = val
 		role = role.to_upper()
@@ -92,7 +162,7 @@ func setSquadPlayers():
 				else:
 					player.position = position.DEFAULT
 					print("player takes a central/default position")
-				squadPlayers.append(player)
+				startPlayers.append(player)
 				no += 1
 		elif formation.getRoleNumber(role) == 0:
 			continue
@@ -101,7 +171,23 @@ func setSquadPlayers():
 			var player:Stats = ratingArray.get(role)[0]
 			player.position = TeamCreator.positionSpecs.DEFAULT
 			print("player takes a central/default position")
-			squadPlayers.append(player)
+			startPlayers.append(player)
+	
+func setBenchPlayers():
+	var bench:Array = removeElements(teamPlayers, startPlayers)
+	var roles:Array = Stats.roleSpecs.keys()
+	for val in roles:
+		var role:String = val
+		role = role.to_upper()
+		for player in ratingArray.get(role):
+			if bench.has(player) and formation.getRoleNumber(role) > 0:
+				benchPlayers.append(player)
+				break
+
+func setReservePlayers():
+	var reserves:Array = removeElements(teamPlayers, startPlayers)
+	reserves = removeElements(reserves, benchPlayers)
+	reservePlayers.append_array(reserves)
 	
 func setLinkedListRoles():
 	print("setting players to LinkedList")
@@ -152,6 +238,12 @@ func setArrayRoles():
 func setTactics(val):
 	tactics = Tactics.new()
 	pass
+
+func removeElements(mainArray:Array ,elementsToRemove:Array):
+	for element in elementsToRemove:
+		var index = mainArray.find(element)
+		mainArray.erase(index)
+	return mainArray
 
 
 

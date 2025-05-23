@@ -4,6 +4,7 @@
 [ext_resource path="res://addons/btree/script/btree.gd" type="Script" id=2]
 
 [node name="AI-forward" type="Node2D"]
+z_as_relative = false
 script = ExtResource( 1 )
 
 [node name="Kick-off" type="Node" parent="."]
@@ -60,16 +61,6 @@ tree = {
 "to": "selector2",
 "to_port": 0
 }, {
-"from": "selector2",
-"from_port": 0,
-"to": "minim_node",
-"to_port": 0
-}, {
-"from": "selector2",
-"from_port": 1,
-"to": "minim_node2",
-"to_port": 0
-}, {
 "from": "selector",
 "from_port": 1,
 "to": "selector3",
@@ -104,6 +95,126 @@ tree = {
 "from_port": 2,
 "to": "task7",
 "to_port": 0
+}, {
+"from": "paralel5",
+"from_port": 0,
+"to": "inverter3",
+"to_port": 0
+}, {
+"from": "inverter3",
+"from_port": 0,
+"to": "task9",
+"to_port": 0
+}, {
+"from": "selector2",
+"from_port": 1,
+"to": "paralel5",
+"to_port": 0
+}, {
+"from": "paralel5",
+"from_port": 1,
+"to": "minim_node2",
+"to_port": 0
+}, {
+"from": "paralel4",
+"from_port": 0,
+"to": "task8",
+"to_port": 0
+}, {
+"from": "paralel4",
+"from_port": 1,
+"to": "priority_selector",
+"to_port": 0
+}, {
+"from": "priority_selector",
+"from_port": 0,
+"to": "priority_condition",
+"to_port": 0
+}, {
+"from": "priority_selector",
+"from_port": 1,
+"to": "priority_condition2",
+"to_port": 0
+}, {
+"from": "priority_selector",
+"from_port": 2,
+"to": "priority_condition3",
+"to_port": 0
+}, {
+"from": "priority_condition",
+"from_port": 0,
+"to": "selector4",
+"to_port": 0
+}, {
+"from": "selector4",
+"from_port": 0,
+"to": "sequence8",
+"to_port": 0
+}, {
+"from": "selector4",
+"from_port": 1,
+"to": "sequence9",
+"to_port": 0
+}, {
+"from": "sequence8",
+"from_port": 0,
+"to": "task16",
+"to_port": 0
+}, {
+"from": "sequence8",
+"from_port": 1,
+"to": "task17",
+"to_port": 0
+}, {
+"from": "sequence8",
+"from_port": 2,
+"to": "task18",
+"to_port": 0
+}, {
+"from": "sequence9",
+"from_port": 2,
+"to": "task21",
+"to_port": 0
+}, {
+"from": "sequence9",
+"from_port": 0,
+"to": "inverter5",
+"to_port": 0
+}, {
+"from": "sequence9",
+"from_port": 1,
+"to": "task20",
+"to_port": 0
+}, {
+"from": "inverter5",
+"from_port": 0,
+"to": "task19",
+"to_port": 0
+}, {
+"from": "priority_condition2",
+"from_port": 0,
+"to": "sequence3",
+"to_port": 0
+}, {
+"from": "sequence3",
+"from_port": 0,
+"to": "task10",
+"to_port": 0
+}, {
+"from": "sequence3",
+"from_port": 1,
+"to": "task11",
+"to_port": 0
+}, {
+"from": "selector2",
+"from_port": 0,
+"to": "paralel4",
+"to_port": 0
+}, {
+"from": "priority_condition3",
+"from_port": 0,
+"to": "task12",
+"to_port": 0
 } ],
 "nodes": [ {
 "child": [ {
@@ -164,7 +275,7 @@ tree = {
 "fn": "task_matchStart",
 "offset": Vector2( 220, 100 ),
 "params": [  ],
-"size": Vector2( 317.001, 84.9997 ),
+"size": Vector2( 317.001, 84.9996 ),
 "values": [  ]
 },
 "name": "task",
@@ -184,326 +295,6 @@ tree = {
 "type": 1
 }, {
 "child": [ {
-"child": [  ],
-"data": {
-"data": {
-"connection": [ {
-"from": "paralel3",
-"from_port": 0,
-"to": "task4",
-"to_port": 0
-}, {
-"from": "paralel3",
-"from_port": 1,
-"to": "priority_selector",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 0,
-"to": "priority_condition",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 1,
-"to": "priority_condition2",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 2,
-"to": "priority_condition3",
-"to_port": 0
-}, {
-"from": "priority_condition",
-"from_port": 0,
-"to": "selector3",
-"to_port": 0
-}, {
-"from": "selector3",
-"from_port": 0,
-"to": "sequence8",
-"to_port": 0
-}, {
-"from": "selector3",
-"from_port": 1,
-"to": "sequence9",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 0,
-"to": "task16",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 1,
-"to": "task17",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 2,
-"to": "task18",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 2,
-"to": "task21",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 0,
-"to": "inverter5",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 1,
-"to": "task20",
-"to_port": 0
-}, {
-"from": "inverter5",
-"from_port": 0,
-"to": "task19",
-"to_port": 0
-}, {
-"from": "priority_condition2",
-"from_port": 0,
-"to": "sequence3",
-"to_port": 0
-}, {
-"from": "sequence3",
-"from_port": 0,
-"to": "task5",
-"to_port": 0
-}, {
-"from": "sequence3",
-"from_port": 1,
-"to": "task6",
-"to_port": 0
-}, {
-"from": "priority_condition3",
-"from_port": 0,
-"to": "sequence4",
-"to_port": 0
-}, {
-"from": "sequence4",
-"from_port": 0,
-"to": "task7",
-"to_port": 0
-} ],
-"nodes": [ {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1000, 40 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel3",
-"type": 6
-}, {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1160, -20 ),
-"params": [  ],
-"size": Vector2( 297, 84.9999 ),
-"values": [  ]
-},
-"name": "task4",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 1160, 120 ),
-"size": Vector2( 181, 136 )
-},
-"name": "priority_selector",
-"type": 4
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condPassBall",
-"offset": Vector2( 1480, 80 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 331, 109 ),
-"values": [ 1 ]
-},
-"name": "priority_condition",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1920, -360 ),
-"size": Vector2( 134, 109 )
-},
-"name": "selector3",
-"type": 3
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 2160, -420 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence8",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2420, -560 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task16",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2420, -440 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task17",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2420, -320 ),
-"params": [  ],
-"size": Vector2( 299, 85 ),
-"values": [  ]
-},
-"name": "task18",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 2160, -180 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence9",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"offset": Vector2( 2380, -180 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter5",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2580, -200 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task19",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2580, -100 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task20",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2460, 0 ),
-"params": [  ],
-"size": Vector2( 299, 84.9999 ),
-"values": [  ]
-},
-"name": "task21",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condCrossBall",
-"offset": Vector2( 1480, 200 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 338, 109 ),
-"values": [ 2 ]
-},
-"name": "priority_condition2",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 140 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence3",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2260, 60 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task5",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_crossBall",
-"offset": Vector2( 2260, 180 ),
-"params": [  ],
-"size": Vector2( 303, 84.9999 ),
-"values": [  ]
-},
-"name": "task6",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condProgressBall",
-"offset": Vector2( 1480, 320 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 360, 109 ),
-"values": [ 3 ]
-},
-"name": "priority_condition3",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 320 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence4",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasSpace",
-"offset": Vector2( 2260, 280 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task7",
-"type": 1
-} ],
-"root": {
 "child": [ {
 "child": [  ],
 "data": {
@@ -513,7 +304,7 @@ tree = {
 "size": Vector2( 297, 84.9999 ),
 "values": [  ]
 },
-"name": "task4",
+"name": "task8",
 "type": 1
 }, {
 "child": [ {
@@ -595,7 +386,7 @@ tree = {
 "child": [  ],
 "data": {
 "fn": "task_passBall",
-"offset": Vector2( 2460, 0 ),
+"offset": Vector2( 2460, -20 ),
 "params": [  ],
 "size": Vector2( 299, 84.9999 ),
 "values": [  ]
@@ -616,7 +407,7 @@ tree = {
 "offset": Vector2( 1920, -360 ),
 "size": Vector2( 134, 109 )
 },
-"name": "selector3",
+"name": "selector4",
 "type": 3
 } ],
 "data": {
@@ -634,23 +425,23 @@ tree = {
 "child": [  ],
 "data": {
 "fn": "task_hasPassTarget",
-"offset": Vector2( 2260, 60 ),
+"offset": Vector2( 2280, 120 ),
 "params": [  ],
 "size": Vector2( 341, 85.0001 ),
 "values": [  ]
 },
-"name": "task5",
+"name": "task10",
 "type": 1
 }, {
 "child": [  ],
 "data": {
 "fn": "task_crossBall",
-"offset": Vector2( 2260, 180 ),
+"offset": Vector2( 2280, 240 ),
 "params": [  ],
 "size": Vector2( 303, 84.9999 ),
 "values": [  ]
 },
-"name": "task6",
+"name": "task11",
 "type": 1
 } ],
 "data": {
@@ -672,25 +463,16 @@ tree = {
 "type": 5
 }, {
 "child": [ {
-"child": [ {
 "child": [  ],
 "data": {
-"fn": "task_hasSpace",
-"offset": Vector2( 2260, 280 ),
+"fn": "task_progressBall",
+"offset": Vector2( 2038.37, 371.301 ),
 "params": [  ],
-"size": Vector2( 341, 85.0001 ),
+"size": Vector2( 328, 85 ),
 "values": [  ]
 },
-"name": "task7",
+"name": "task12",
 "type": 1
-} ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 320 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence4",
-"type": 2
 } ],
 "data": {
 "fn": "task_condProgressBall",
@@ -715,36 +497,33 @@ tree = {
 "offset": Vector2( 1000, 40 ),
 "size": Vector2( 128, 109 )
 },
-"name": "paralel3",
+"name": "paralel4",
 "type": 6
-}
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_withBall",
+"offset": Vector2( 1280, 580 ),
+"params": [  ],
+"size": Vector2( 350, 85.0001 ),
+"values": [  ]
 },
-"label": "",
-"offset": Vector2( 1000, 40 ),
-"size": Vector2( 236, 89.0001 )
+"name": "task9",
+"type": 1
+} ],
+"data": {
+"offset": Vector2( 1120, 600 ),
+"size": Vector2( 134, 55 )
 },
-"name": "minim_node",
-"type": 99
+"name": "inverter3",
+"type": 14
 }, {
 "child": [  ],
 "data": {
 "data": {
 "connection": [ {
-"from": "paralel5",
-"from_port": 0,
-"to": "inverter3",
-"to_port": 0
-}, {
-"from": "paralel5",
-"from_port": 1,
-"to": "priority_selector2",
-"to_port": 0
-}, {
-"from": "inverter3",
-"from_port": 0,
-"to": "task9",
-"to_port": 0
-}, {
 "from": "priority_selector2",
 "from_port": 0,
 "to": "priority_condition4",
@@ -838,34 +617,6 @@ tree = {
 "nodes": [ {
 "child": [  ],
 "data": {
-"count": 2,
-"offset": Vector2( 900, 600 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel5",
-"type": 6
-}, {
-"child": [  ],
-"data": {
-"offset": Vector2( 1120, 600 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter3",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1280, 580 ),
-"params": [  ],
-"size": Vector2( 350, 85.0001 ),
-"values": [  ]
-},
-"name": "task9",
-"type": 1
-}, {
-"child": [  ],
-"data": {
 "count": 3,
 "offset": Vector2( 1140, 760 ),
 "size": Vector2( 189, 136 )
@@ -877,9 +628,9 @@ tree = {
 "data": {
 "fn": "task_canSupport",
 "offset": Vector2( 1400, 720 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 1 ]
+"params": [  ],
+"size": Vector2( 321, 83 ),
+"values": [  ]
 },
 "name": "priority_condition4",
 "type": 5
@@ -976,9 +727,9 @@ tree = {
 "data": {
 "fn": "task_canMakeRun",
 "offset": Vector2( 1400, 860 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 2 ]
+"params": [  ],
+"size": Vector2( 330, 83 ),
+"values": [  ]
 },
 "name": "priority_condition5",
 "type": 5
@@ -1035,9 +786,9 @@ tree = {
 "data": {
 "fn": "task_HoldPosition",
 "offset": Vector2( 1400, 1000 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 3 ]
+"params": [  ],
+"size": Vector2( 327, 83 ),
+"values": [  ]
 },
 "name": "priority_condition6",
 "type": 5
@@ -1047,7 +798,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 1840, 1020 ),
 "params": [  ],
-"size": Vector2( 356, 85 ),
+"size": Vector2( 356, 84.9999 ),
 "values": [  ]
 },
 "name": "task15",
@@ -1056,26 +807,6 @@ tree = {
 "root": {
 "child": [ {
 "child": [ {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1280, 580 ),
-"params": [  ],
-"size": Vector2( 350, 85.0001 ),
-"values": [  ]
-},
-"name": "task9",
-"type": 1
-} ],
-"data": {
-"offset": Vector2( 1120, 600 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter3",
-"type": 14
-}, {
-"child": [ {
-"child": [ {
 "child": [ {
 "child": [  ],
 "data": {
@@ -1167,9 +898,9 @@ tree = {
 "data": {
 "fn": "task_canSupport",
 "offset": Vector2( 1400, 720 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 1 ]
+"params": [  ],
+"size": Vector2( 321, 83 ),
+"values": [  ]
 },
 "name": "priority_condition4",
 "type": 5
@@ -1226,9 +957,9 @@ tree = {
 "data": {
 "fn": "task_canMakeRun",
 "offset": Vector2( 1400, 860 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 2 ]
+"params": [  ],
+"size": Vector2( 330, 83 ),
+"values": [  ]
 },
 "name": "priority_condition5",
 "type": 5
@@ -1239,7 +970,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 1840, 1020 ),
 "params": [  ],
-"size": Vector2( 356, 85 ),
+"size": Vector2( 356, 84.9999 ),
 "values": [  ]
 },
 "name": "task15",
@@ -1248,9 +979,9 @@ tree = {
 "data": {
 "fn": "task_HoldPosition",
 "offset": Vector2( 1400, 1000 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 3 ]
+"params": [  ],
+"size": Vector2( 327, 83 ),
+"values": [  ]
 },
 "name": "priority_condition6",
 "type": 5
@@ -1262,6 +993,14 @@ tree = {
 },
 "name": "priority_selector2",
 "type": 4
+}
+},
+"label": "",
+"offset": Vector2( 1140, 760 ),
+"size": Vector2( 236, 89 )
+},
+"name": "minim_node2",
+"type": 99
 } ],
 "data": {
 "count": 2,
@@ -1270,14 +1009,6 @@ tree = {
 },
 "name": "paralel5",
 "type": 6
-}
-},
-"label": "",
-"offset": Vector2( 900, 600 ),
-"size": Vector2( 236, 89.0001 )
-},
-"name": "minim_node2",
-"type": 99
 } ],
 "data": {
 "count": 2,
@@ -1705,7 +1436,7 @@ tree = {
 },
 "label": "",
 "offset": Vector2( 780, 940 ),
-"size": Vector2( 236, 89.0002 )
+"size": Vector2( 236, 89.0005 )
 },
 "name": "minim_node3",
 "type": 99
@@ -1723,7 +1454,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 500, 1080 ),
 "params": [  ],
-"size": Vector2( 356, 85.0001 ),
+"size": Vector2( 356, 85.0005 ),
 "values": [  ]
 },
 "name": "task5",
@@ -1763,7 +1494,7 @@ tree = {
 } ],
 "data": {
 "offset": Vector2( -420, -20 ),
-"size": Vector2( 83.0005, 60.0572 )
+"size": Vector2( 83.0005, 60.0576 )
 },
 "name": "root",
 "type": 0
@@ -1825,7 +1556,7 @@ tree = {
 "fn": "task_matchStart",
 "offset": Vector2( 220, 100 ),
 "params": [  ],
-"size": Vector2( 317.001, 84.9997 ),
+"size": Vector2( 317.001, 84.9996 ),
 "values": [  ]
 },
 "name": "task",
@@ -1845,326 +1576,6 @@ tree = {
 "type": 1
 }, {
 "child": [ {
-"child": [  ],
-"data": {
-"data": {
-"connection": [ {
-"from": "paralel3",
-"from_port": 0,
-"to": "task4",
-"to_port": 0
-}, {
-"from": "paralel3",
-"from_port": 1,
-"to": "priority_selector",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 0,
-"to": "priority_condition",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 1,
-"to": "priority_condition2",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 2,
-"to": "priority_condition3",
-"to_port": 0
-}, {
-"from": "priority_condition",
-"from_port": 0,
-"to": "selector3",
-"to_port": 0
-}, {
-"from": "selector3",
-"from_port": 0,
-"to": "sequence8",
-"to_port": 0
-}, {
-"from": "selector3",
-"from_port": 1,
-"to": "sequence9",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 0,
-"to": "task16",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 1,
-"to": "task17",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 2,
-"to": "task18",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 2,
-"to": "task21",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 0,
-"to": "inverter5",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 1,
-"to": "task20",
-"to_port": 0
-}, {
-"from": "inverter5",
-"from_port": 0,
-"to": "task19",
-"to_port": 0
-}, {
-"from": "priority_condition2",
-"from_port": 0,
-"to": "sequence3",
-"to_port": 0
-}, {
-"from": "sequence3",
-"from_port": 0,
-"to": "task5",
-"to_port": 0
-}, {
-"from": "sequence3",
-"from_port": 1,
-"to": "task6",
-"to_port": 0
-}, {
-"from": "priority_condition3",
-"from_port": 0,
-"to": "sequence4",
-"to_port": 0
-}, {
-"from": "sequence4",
-"from_port": 0,
-"to": "task7",
-"to_port": 0
-} ],
-"nodes": [ {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1000, 40 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel3",
-"type": 6
-}, {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1160, -20 ),
-"params": [  ],
-"size": Vector2( 297, 84.9999 ),
-"values": [  ]
-},
-"name": "task4",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 1160, 120 ),
-"size": Vector2( 181, 136 )
-},
-"name": "priority_selector",
-"type": 4
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condPassBall",
-"offset": Vector2( 1480, 80 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 331, 109 ),
-"values": [ 1 ]
-},
-"name": "priority_condition",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1920, -360 ),
-"size": Vector2( 134, 109 )
-},
-"name": "selector3",
-"type": 3
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 2160, -420 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence8",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2420, -560 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task16",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2420, -440 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task17",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2420, -320 ),
-"params": [  ],
-"size": Vector2( 299, 85 ),
-"values": [  ]
-},
-"name": "task18",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 2160, -180 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence9",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"offset": Vector2( 2380, -180 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter5",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2580, -200 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task19",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2580, -100 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task20",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2460, 0 ),
-"params": [  ],
-"size": Vector2( 299, 84.9999 ),
-"values": [  ]
-},
-"name": "task21",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condCrossBall",
-"offset": Vector2( 1480, 200 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 338, 109 ),
-"values": [ 2 ]
-},
-"name": "priority_condition2",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 140 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence3",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2260, 60 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task5",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_crossBall",
-"offset": Vector2( 2260, 180 ),
-"params": [  ],
-"size": Vector2( 303, 84.9999 ),
-"values": [  ]
-},
-"name": "task6",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condProgressBall",
-"offset": Vector2( 1480, 320 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 360, 109 ),
-"values": [ 3 ]
-},
-"name": "priority_condition3",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 320 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence4",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasSpace",
-"offset": Vector2( 2260, 280 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task7",
-"type": 1
-} ],
-"root": {
 "child": [ {
 "child": [  ],
 "data": {
@@ -2174,7 +1585,7 @@ tree = {
 "size": Vector2( 297, 84.9999 ),
 "values": [  ]
 },
-"name": "task4",
+"name": "task8",
 "type": 1
 }, {
 "child": [ {
@@ -2256,7 +1667,7 @@ tree = {
 "child": [  ],
 "data": {
 "fn": "task_passBall",
-"offset": Vector2( 2460, 0 ),
+"offset": Vector2( 2460, -20 ),
 "params": [  ],
 "size": Vector2( 299, 84.9999 ),
 "values": [  ]
@@ -2277,7 +1688,7 @@ tree = {
 "offset": Vector2( 1920, -360 ),
 "size": Vector2( 134, 109 )
 },
-"name": "selector3",
+"name": "selector4",
 "type": 3
 } ],
 "data": {
@@ -2295,23 +1706,23 @@ tree = {
 "child": [  ],
 "data": {
 "fn": "task_hasPassTarget",
-"offset": Vector2( 2260, 60 ),
+"offset": Vector2( 2280, 120 ),
 "params": [  ],
 "size": Vector2( 341, 85.0001 ),
 "values": [  ]
 },
-"name": "task5",
+"name": "task10",
 "type": 1
 }, {
 "child": [  ],
 "data": {
 "fn": "task_crossBall",
-"offset": Vector2( 2260, 180 ),
+"offset": Vector2( 2280, 240 ),
 "params": [  ],
 "size": Vector2( 303, 84.9999 ),
 "values": [  ]
 },
-"name": "task6",
+"name": "task11",
 "type": 1
 } ],
 "data": {
@@ -2333,25 +1744,16 @@ tree = {
 "type": 5
 }, {
 "child": [ {
-"child": [ {
 "child": [  ],
 "data": {
-"fn": "task_hasSpace",
-"offset": Vector2( 2260, 280 ),
+"fn": "task_progressBall",
+"offset": Vector2( 2038.37, 371.301 ),
 "params": [  ],
-"size": Vector2( 341, 85.0001 ),
+"size": Vector2( 328, 85 ),
 "values": [  ]
 },
-"name": "task7",
+"name": "task12",
 "type": 1
-} ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 320 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence4",
-"type": 2
 } ],
 "data": {
 "fn": "task_condProgressBall",
@@ -2376,36 +1778,33 @@ tree = {
 "offset": Vector2( 1000, 40 ),
 "size": Vector2( 128, 109 )
 },
-"name": "paralel3",
+"name": "paralel4",
 "type": 6
-}
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_withBall",
+"offset": Vector2( 1280, 580 ),
+"params": [  ],
+"size": Vector2( 350, 85.0001 ),
+"values": [  ]
 },
-"label": "",
-"offset": Vector2( 1000, 40 ),
-"size": Vector2( 236, 89.0001 )
+"name": "task9",
+"type": 1
+} ],
+"data": {
+"offset": Vector2( 1120, 600 ),
+"size": Vector2( 134, 55 )
 },
-"name": "minim_node",
-"type": 99
+"name": "inverter3",
+"type": 14
 }, {
 "child": [  ],
 "data": {
 "data": {
 "connection": [ {
-"from": "paralel5",
-"from_port": 0,
-"to": "inverter3",
-"to_port": 0
-}, {
-"from": "paralel5",
-"from_port": 1,
-"to": "priority_selector2",
-"to_port": 0
-}, {
-"from": "inverter3",
-"from_port": 0,
-"to": "task9",
-"to_port": 0
-}, {
 "from": "priority_selector2",
 "from_port": 0,
 "to": "priority_condition4",
@@ -2499,34 +1898,6 @@ tree = {
 "nodes": [ {
 "child": [  ],
 "data": {
-"count": 2,
-"offset": Vector2( 900, 600 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel5",
-"type": 6
-}, {
-"child": [  ],
-"data": {
-"offset": Vector2( 1120, 600 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter3",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1280, 580 ),
-"params": [  ],
-"size": Vector2( 350, 85.0001 ),
-"values": [  ]
-},
-"name": "task9",
-"type": 1
-}, {
-"child": [  ],
-"data": {
 "count": 3,
 "offset": Vector2( 1140, 760 ),
 "size": Vector2( 189, 136 )
@@ -2538,9 +1909,9 @@ tree = {
 "data": {
 "fn": "task_canSupport",
 "offset": Vector2( 1400, 720 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 1 ]
+"params": [  ],
+"size": Vector2( 321, 83 ),
+"values": [  ]
 },
 "name": "priority_condition4",
 "type": 5
@@ -2637,9 +2008,9 @@ tree = {
 "data": {
 "fn": "task_canMakeRun",
 "offset": Vector2( 1400, 860 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 2 ]
+"params": [  ],
+"size": Vector2( 330, 83 ),
+"values": [  ]
 },
 "name": "priority_condition5",
 "type": 5
@@ -2696,9 +2067,9 @@ tree = {
 "data": {
 "fn": "task_HoldPosition",
 "offset": Vector2( 1400, 1000 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 3 ]
+"params": [  ],
+"size": Vector2( 327, 83 ),
+"values": [  ]
 },
 "name": "priority_condition6",
 "type": 5
@@ -2708,7 +2079,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 1840, 1020 ),
 "params": [  ],
-"size": Vector2( 356, 85 ),
+"size": Vector2( 356, 84.9999 ),
 "values": [  ]
 },
 "name": "task15",
@@ -2717,26 +2088,6 @@ tree = {
 "root": {
 "child": [ {
 "child": [ {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1280, 580 ),
-"params": [  ],
-"size": Vector2( 350, 85.0001 ),
-"values": [  ]
-},
-"name": "task9",
-"type": 1
-} ],
-"data": {
-"offset": Vector2( 1120, 600 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter3",
-"type": 14
-}, {
-"child": [ {
-"child": [ {
 "child": [ {
 "child": [  ],
 "data": {
@@ -2828,9 +2179,9 @@ tree = {
 "data": {
 "fn": "task_canSupport",
 "offset": Vector2( 1400, 720 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 1 ]
+"params": [  ],
+"size": Vector2( 321, 83 ),
+"values": [  ]
 },
 "name": "priority_condition4",
 "type": 5
@@ -2887,9 +2238,9 @@ tree = {
 "data": {
 "fn": "task_canMakeRun",
 "offset": Vector2( 1400, 860 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 2 ]
+"params": [  ],
+"size": Vector2( 330, 83 ),
+"values": [  ]
 },
 "name": "priority_condition5",
 "type": 5
@@ -2900,7 +2251,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 1840, 1020 ),
 "params": [  ],
-"size": Vector2( 356, 85 ),
+"size": Vector2( 356, 84.9999 ),
 "values": [  ]
 },
 "name": "task15",
@@ -2909,9 +2260,9 @@ tree = {
 "data": {
 "fn": "task_HoldPosition",
 "offset": Vector2( 1400, 1000 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 3 ]
+"params": [  ],
+"size": Vector2( 327, 83 ),
+"values": [  ]
 },
 "name": "priority_condition6",
 "type": 5
@@ -2923,6 +2274,14 @@ tree = {
 },
 "name": "priority_selector2",
 "type": 4
+}
+},
+"label": "",
+"offset": Vector2( 1140, 760 ),
+"size": Vector2( 236, 89 )
+},
+"name": "minim_node2",
+"type": 99
 } ],
 "data": {
 "count": 2,
@@ -2931,14 +2290,6 @@ tree = {
 },
 "name": "paralel5",
 "type": 6
-}
-},
-"label": "",
-"offset": Vector2( 900, 600 ),
-"size": Vector2( 236, 89.0001 )
-},
-"name": "minim_node2",
-"type": 99
 } ],
 "data": {
 "count": 2,
@@ -3366,7 +2717,7 @@ tree = {
 },
 "label": "",
 "offset": Vector2( 780, 940 ),
-"size": Vector2( 236, 89.0002 )
+"size": Vector2( 236, 89.0005 )
 },
 "name": "minim_node3",
 "type": 99
@@ -3384,7 +2735,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 500, 1080 ),
 "params": [  ],
-"size": Vector2( 356, 85.0001 ),
+"size": Vector2( 356, 85.0005 ),
 "values": [  ]
 },
 "name": "task5",
@@ -3436,326 +2787,6 @@ tree = {
 "type": 1
 }, {
 "child": [ {
-"child": [  ],
-"data": {
-"data": {
-"connection": [ {
-"from": "paralel3",
-"from_port": 0,
-"to": "task4",
-"to_port": 0
-}, {
-"from": "paralel3",
-"from_port": 1,
-"to": "priority_selector",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 0,
-"to": "priority_condition",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 1,
-"to": "priority_condition2",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 2,
-"to": "priority_condition3",
-"to_port": 0
-}, {
-"from": "priority_condition",
-"from_port": 0,
-"to": "selector3",
-"to_port": 0
-}, {
-"from": "selector3",
-"from_port": 0,
-"to": "sequence8",
-"to_port": 0
-}, {
-"from": "selector3",
-"from_port": 1,
-"to": "sequence9",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 0,
-"to": "task16",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 1,
-"to": "task17",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 2,
-"to": "task18",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 2,
-"to": "task21",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 0,
-"to": "inverter5",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 1,
-"to": "task20",
-"to_port": 0
-}, {
-"from": "inverter5",
-"from_port": 0,
-"to": "task19",
-"to_port": 0
-}, {
-"from": "priority_condition2",
-"from_port": 0,
-"to": "sequence3",
-"to_port": 0
-}, {
-"from": "sequence3",
-"from_port": 0,
-"to": "task5",
-"to_port": 0
-}, {
-"from": "sequence3",
-"from_port": 1,
-"to": "task6",
-"to_port": 0
-}, {
-"from": "priority_condition3",
-"from_port": 0,
-"to": "sequence4",
-"to_port": 0
-}, {
-"from": "sequence4",
-"from_port": 0,
-"to": "task7",
-"to_port": 0
-} ],
-"nodes": [ {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1000, 40 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel3",
-"type": 6
-}, {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1160, -20 ),
-"params": [  ],
-"size": Vector2( 297, 84.9999 ),
-"values": [  ]
-},
-"name": "task4",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 1160, 120 ),
-"size": Vector2( 181, 136 )
-},
-"name": "priority_selector",
-"type": 4
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condPassBall",
-"offset": Vector2( 1480, 80 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 331, 109 ),
-"values": [ 1 ]
-},
-"name": "priority_condition",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1920, -360 ),
-"size": Vector2( 134, 109 )
-},
-"name": "selector3",
-"type": 3
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 2160, -420 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence8",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2420, -560 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task16",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2420, -440 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task17",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2420, -320 ),
-"params": [  ],
-"size": Vector2( 299, 85 ),
-"values": [  ]
-},
-"name": "task18",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 2160, -180 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence9",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"offset": Vector2( 2380, -180 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter5",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2580, -200 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task19",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2580, -100 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task20",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2460, 0 ),
-"params": [  ],
-"size": Vector2( 299, 84.9999 ),
-"values": [  ]
-},
-"name": "task21",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condCrossBall",
-"offset": Vector2( 1480, 200 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 338, 109 ),
-"values": [ 2 ]
-},
-"name": "priority_condition2",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 140 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence3",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2260, 60 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task5",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_crossBall",
-"offset": Vector2( 2260, 180 ),
-"params": [  ],
-"size": Vector2( 303, 84.9999 ),
-"values": [  ]
-},
-"name": "task6",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condProgressBall",
-"offset": Vector2( 1480, 320 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 360, 109 ),
-"values": [ 3 ]
-},
-"name": "priority_condition3",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 320 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence4",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasSpace",
-"offset": Vector2( 2260, 280 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task7",
-"type": 1
-} ],
-"root": {
 "child": [ {
 "child": [  ],
 "data": {
@@ -3765,7 +2796,7 @@ tree = {
 "size": Vector2( 297, 84.9999 ),
 "values": [  ]
 },
-"name": "task4",
+"name": "task8",
 "type": 1
 }, {
 "child": [ {
@@ -3847,7 +2878,7 @@ tree = {
 "child": [  ],
 "data": {
 "fn": "task_passBall",
-"offset": Vector2( 2460, 0 ),
+"offset": Vector2( 2460, -20 ),
 "params": [  ],
 "size": Vector2( 299, 84.9999 ),
 "values": [  ]
@@ -3868,7 +2899,7 @@ tree = {
 "offset": Vector2( 1920, -360 ),
 "size": Vector2( 134, 109 )
 },
-"name": "selector3",
+"name": "selector4",
 "type": 3
 } ],
 "data": {
@@ -3886,23 +2917,23 @@ tree = {
 "child": [  ],
 "data": {
 "fn": "task_hasPassTarget",
-"offset": Vector2( 2260, 60 ),
+"offset": Vector2( 2280, 120 ),
 "params": [  ],
 "size": Vector2( 341, 85.0001 ),
 "values": [  ]
 },
-"name": "task5",
+"name": "task10",
 "type": 1
 }, {
 "child": [  ],
 "data": {
 "fn": "task_crossBall",
-"offset": Vector2( 2260, 180 ),
+"offset": Vector2( 2280, 240 ),
 "params": [  ],
 "size": Vector2( 303, 84.9999 ),
 "values": [  ]
 },
-"name": "task6",
+"name": "task11",
 "type": 1
 } ],
 "data": {
@@ -3924,25 +2955,16 @@ tree = {
 "type": 5
 }, {
 "child": [ {
-"child": [ {
 "child": [  ],
 "data": {
-"fn": "task_hasSpace",
-"offset": Vector2( 2260, 280 ),
+"fn": "task_progressBall",
+"offset": Vector2( 2038.37, 371.301 ),
 "params": [  ],
-"size": Vector2( 341, 85.0001 ),
+"size": Vector2( 328, 85 ),
 "values": [  ]
 },
-"name": "task7",
+"name": "task12",
 "type": 1
-} ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 320 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence4",
-"type": 2
 } ],
 "data": {
 "fn": "task_condProgressBall",
@@ -3967,36 +2989,33 @@ tree = {
 "offset": Vector2( 1000, 40 ),
 "size": Vector2( 128, 109 )
 },
-"name": "paralel3",
+"name": "paralel4",
 "type": 6
-}
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_withBall",
+"offset": Vector2( 1280, 580 ),
+"params": [  ],
+"size": Vector2( 350, 85.0001 ),
+"values": [  ]
 },
-"label": "",
-"offset": Vector2( 1000, 40 ),
-"size": Vector2( 236, 89.0001 )
+"name": "task9",
+"type": 1
+} ],
+"data": {
+"offset": Vector2( 1120, 600 ),
+"size": Vector2( 134, 55 )
 },
-"name": "minim_node",
-"type": 99
+"name": "inverter3",
+"type": 14
 }, {
 "child": [  ],
 "data": {
 "data": {
 "connection": [ {
-"from": "paralel5",
-"from_port": 0,
-"to": "inverter3",
-"to_port": 0
-}, {
-"from": "paralel5",
-"from_port": 1,
-"to": "priority_selector2",
-"to_port": 0
-}, {
-"from": "inverter3",
-"from_port": 0,
-"to": "task9",
-"to_port": 0
-}, {
 "from": "priority_selector2",
 "from_port": 0,
 "to": "priority_condition4",
@@ -4090,34 +3109,6 @@ tree = {
 "nodes": [ {
 "child": [  ],
 "data": {
-"count": 2,
-"offset": Vector2( 900, 600 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel5",
-"type": 6
-}, {
-"child": [  ],
-"data": {
-"offset": Vector2( 1120, 600 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter3",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1280, 580 ),
-"params": [  ],
-"size": Vector2( 350, 85.0001 ),
-"values": [  ]
-},
-"name": "task9",
-"type": 1
-}, {
-"child": [  ],
-"data": {
 "count": 3,
 "offset": Vector2( 1140, 760 ),
 "size": Vector2( 189, 136 )
@@ -4129,9 +3120,9 @@ tree = {
 "data": {
 "fn": "task_canSupport",
 "offset": Vector2( 1400, 720 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 1 ]
+"params": [  ],
+"size": Vector2( 321, 83 ),
+"values": [  ]
 },
 "name": "priority_condition4",
 "type": 5
@@ -4228,9 +3219,9 @@ tree = {
 "data": {
 "fn": "task_canMakeRun",
 "offset": Vector2( 1400, 860 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 2 ]
+"params": [  ],
+"size": Vector2( 330, 83 ),
+"values": [  ]
 },
 "name": "priority_condition5",
 "type": 5
@@ -4287,9 +3278,9 @@ tree = {
 "data": {
 "fn": "task_HoldPosition",
 "offset": Vector2( 1400, 1000 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 3 ]
+"params": [  ],
+"size": Vector2( 327, 83 ),
+"values": [  ]
 },
 "name": "priority_condition6",
 "type": 5
@@ -4299,7 +3290,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 1840, 1020 ),
 "params": [  ],
-"size": Vector2( 356, 85 ),
+"size": Vector2( 356, 84.9999 ),
 "values": [  ]
 },
 "name": "task15",
@@ -4308,26 +3299,6 @@ tree = {
 "root": {
 "child": [ {
 "child": [ {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1280, 580 ),
-"params": [  ],
-"size": Vector2( 350, 85.0001 ),
-"values": [  ]
-},
-"name": "task9",
-"type": 1
-} ],
-"data": {
-"offset": Vector2( 1120, 600 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter3",
-"type": 14
-}, {
-"child": [ {
-"child": [ {
 "child": [ {
 "child": [  ],
 "data": {
@@ -4419,9 +3390,9 @@ tree = {
 "data": {
 "fn": "task_canSupport",
 "offset": Vector2( 1400, 720 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 1 ]
+"params": [  ],
+"size": Vector2( 321, 83 ),
+"values": [  ]
 },
 "name": "priority_condition4",
 "type": 5
@@ -4478,9 +3449,9 @@ tree = {
 "data": {
 "fn": "task_canMakeRun",
 "offset": Vector2( 1400, 860 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 2 ]
+"params": [  ],
+"size": Vector2( 330, 83 ),
+"values": [  ]
 },
 "name": "priority_condition5",
 "type": 5
@@ -4491,7 +3462,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 1840, 1020 ),
 "params": [  ],
-"size": Vector2( 356, 85 ),
+"size": Vector2( 356, 84.9999 ),
 "values": [  ]
 },
 "name": "task15",
@@ -4500,9 +3471,9 @@ tree = {
 "data": {
 "fn": "task_HoldPosition",
 "offset": Vector2( 1400, 1000 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 3 ]
+"params": [  ],
+"size": Vector2( 327, 83 ),
+"values": [  ]
 },
 "name": "priority_condition6",
 "type": 5
@@ -4514,6 +3485,14 @@ tree = {
 },
 "name": "priority_selector2",
 "type": 4
+}
+},
+"label": "",
+"offset": Vector2( 1140, 760 ),
+"size": Vector2( 236, 89 )
+},
+"name": "minim_node2",
+"type": 99
 } ],
 "data": {
 "count": 2,
@@ -4522,14 +3501,6 @@ tree = {
 },
 "name": "paralel5",
 "type": 6
-}
-},
-"label": "",
-"offset": Vector2( 900, 600 ),
-"size": Vector2( 236, 89.0001 )
-},
-"name": "minim_node2",
-"type": 99
 } ],
 "data": {
 "count": 2,
@@ -4957,7 +3928,7 @@ tree = {
 },
 "label": "",
 "offset": Vector2( 780, 940 ),
-"size": Vector2( 236, 89.0002 )
+"size": Vector2( 236, 89.0005 )
 },
 "name": "minim_node3",
 "type": 99
@@ -4975,7 +3946,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 500, 1080 ),
 "params": [  ],
-"size": Vector2( 356, 85.0001 ),
+"size": Vector2( 356, 85.0005 ),
 "values": [  ]
 },
 "name": "task5",
@@ -5040,326 +4011,6 @@ tree = {
 "type": 1
 }, {
 "child": [ {
-"child": [  ],
-"data": {
-"data": {
-"connection": [ {
-"from": "paralel3",
-"from_port": 0,
-"to": "task4",
-"to_port": 0
-}, {
-"from": "paralel3",
-"from_port": 1,
-"to": "priority_selector",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 0,
-"to": "priority_condition",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 1,
-"to": "priority_condition2",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 2,
-"to": "priority_condition3",
-"to_port": 0
-}, {
-"from": "priority_condition",
-"from_port": 0,
-"to": "selector3",
-"to_port": 0
-}, {
-"from": "selector3",
-"from_port": 0,
-"to": "sequence8",
-"to_port": 0
-}, {
-"from": "selector3",
-"from_port": 1,
-"to": "sequence9",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 0,
-"to": "task16",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 1,
-"to": "task17",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 2,
-"to": "task18",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 2,
-"to": "task21",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 0,
-"to": "inverter5",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 1,
-"to": "task20",
-"to_port": 0
-}, {
-"from": "inverter5",
-"from_port": 0,
-"to": "task19",
-"to_port": 0
-}, {
-"from": "priority_condition2",
-"from_port": 0,
-"to": "sequence3",
-"to_port": 0
-}, {
-"from": "sequence3",
-"from_port": 0,
-"to": "task5",
-"to_port": 0
-}, {
-"from": "sequence3",
-"from_port": 1,
-"to": "task6",
-"to_port": 0
-}, {
-"from": "priority_condition3",
-"from_port": 0,
-"to": "sequence4",
-"to_port": 0
-}, {
-"from": "sequence4",
-"from_port": 0,
-"to": "task7",
-"to_port": 0
-} ],
-"nodes": [ {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1000, 40 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel3",
-"type": 6
-}, {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1160, -20 ),
-"params": [  ],
-"size": Vector2( 297, 84.9999 ),
-"values": [  ]
-},
-"name": "task4",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 1160, 120 ),
-"size": Vector2( 181, 136 )
-},
-"name": "priority_selector",
-"type": 4
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condPassBall",
-"offset": Vector2( 1480, 80 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 331, 109 ),
-"values": [ 1 ]
-},
-"name": "priority_condition",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1920, -360 ),
-"size": Vector2( 134, 109 )
-},
-"name": "selector3",
-"type": 3
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 2160, -420 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence8",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2420, -560 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task16",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2420, -440 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task17",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2420, -320 ),
-"params": [  ],
-"size": Vector2( 299, 85 ),
-"values": [  ]
-},
-"name": "task18",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 2160, -180 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence9",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"offset": Vector2( 2380, -180 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter5",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2580, -200 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task19",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2580, -100 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task20",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2460, 0 ),
-"params": [  ],
-"size": Vector2( 299, 84.9999 ),
-"values": [  ]
-},
-"name": "task21",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condCrossBall",
-"offset": Vector2( 1480, 200 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 338, 109 ),
-"values": [ 2 ]
-},
-"name": "priority_condition2",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 140 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence3",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2260, 60 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task5",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_crossBall",
-"offset": Vector2( 2260, 180 ),
-"params": [  ],
-"size": Vector2( 303, 84.9999 ),
-"values": [  ]
-},
-"name": "task6",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condProgressBall",
-"offset": Vector2( 1480, 320 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 360, 109 ),
-"values": [ 3 ]
-},
-"name": "priority_condition3",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 320 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence4",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasSpace",
-"offset": Vector2( 2260, 280 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task7",
-"type": 1
-} ],
-"root": {
 "child": [ {
 "child": [  ],
 "data": {
@@ -5369,7 +4020,7 @@ tree = {
 "size": Vector2( 297, 84.9999 ),
 "values": [  ]
 },
-"name": "task4",
+"name": "task8",
 "type": 1
 }, {
 "child": [ {
@@ -5451,7 +4102,7 @@ tree = {
 "child": [  ],
 "data": {
 "fn": "task_passBall",
-"offset": Vector2( 2460, 0 ),
+"offset": Vector2( 2460, -20 ),
 "params": [  ],
 "size": Vector2( 299, 84.9999 ),
 "values": [  ]
@@ -5472,7 +4123,7 @@ tree = {
 "offset": Vector2( 1920, -360 ),
 "size": Vector2( 134, 109 )
 },
-"name": "selector3",
+"name": "selector4",
 "type": 3
 } ],
 "data": {
@@ -5490,23 +4141,23 @@ tree = {
 "child": [  ],
 "data": {
 "fn": "task_hasPassTarget",
-"offset": Vector2( 2260, 60 ),
+"offset": Vector2( 2280, 120 ),
 "params": [  ],
 "size": Vector2( 341, 85.0001 ),
 "values": [  ]
 },
-"name": "task5",
+"name": "task10",
 "type": 1
 }, {
 "child": [  ],
 "data": {
 "fn": "task_crossBall",
-"offset": Vector2( 2260, 180 ),
+"offset": Vector2( 2280, 240 ),
 "params": [  ],
 "size": Vector2( 303, 84.9999 ),
 "values": [  ]
 },
-"name": "task6",
+"name": "task11",
 "type": 1
 } ],
 "data": {
@@ -5528,25 +4179,16 @@ tree = {
 "type": 5
 }, {
 "child": [ {
-"child": [ {
 "child": [  ],
 "data": {
-"fn": "task_hasSpace",
-"offset": Vector2( 2260, 280 ),
+"fn": "task_progressBall",
+"offset": Vector2( 2038.37, 371.301 ),
 "params": [  ],
-"size": Vector2( 341, 85.0001 ),
+"size": Vector2( 328, 85 ),
 "values": [  ]
 },
-"name": "task7",
+"name": "task12",
 "type": 1
-} ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 320 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence4",
-"type": 2
 } ],
 "data": {
 "fn": "task_condProgressBall",
@@ -5571,36 +4213,33 @@ tree = {
 "offset": Vector2( 1000, 40 ),
 "size": Vector2( 128, 109 )
 },
-"name": "paralel3",
+"name": "paralel4",
 "type": 6
-}
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_withBall",
+"offset": Vector2( 1280, 580 ),
+"params": [  ],
+"size": Vector2( 350, 85.0001 ),
+"values": [  ]
 },
-"label": "",
-"offset": Vector2( 1000, 40 ),
-"size": Vector2( 236, 89.0001 )
+"name": "task9",
+"type": 1
+} ],
+"data": {
+"offset": Vector2( 1120, 600 ),
+"size": Vector2( 134, 55 )
 },
-"name": "minim_node",
-"type": 99
+"name": "inverter3",
+"type": 14
 }, {
 "child": [  ],
 "data": {
 "data": {
 "connection": [ {
-"from": "paralel5",
-"from_port": 0,
-"to": "inverter3",
-"to_port": 0
-}, {
-"from": "paralel5",
-"from_port": 1,
-"to": "priority_selector2",
-"to_port": 0
-}, {
-"from": "inverter3",
-"from_port": 0,
-"to": "task9",
-"to_port": 0
-}, {
 "from": "priority_selector2",
 "from_port": 0,
 "to": "priority_condition4",
@@ -5694,34 +4333,6 @@ tree = {
 "nodes": [ {
 "child": [  ],
 "data": {
-"count": 2,
-"offset": Vector2( 900, 600 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel5",
-"type": 6
-}, {
-"child": [  ],
-"data": {
-"offset": Vector2( 1120, 600 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter3",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1280, 580 ),
-"params": [  ],
-"size": Vector2( 350, 85.0001 ),
-"values": [  ]
-},
-"name": "task9",
-"type": 1
-}, {
-"child": [  ],
-"data": {
 "count": 3,
 "offset": Vector2( 1140, 760 ),
 "size": Vector2( 189, 136 )
@@ -5733,9 +4344,9 @@ tree = {
 "data": {
 "fn": "task_canSupport",
 "offset": Vector2( 1400, 720 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 1 ]
+"params": [  ],
+"size": Vector2( 321, 83 ),
+"values": [  ]
 },
 "name": "priority_condition4",
 "type": 5
@@ -5832,9 +4443,9 @@ tree = {
 "data": {
 "fn": "task_canMakeRun",
 "offset": Vector2( 1400, 860 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 2 ]
+"params": [  ],
+"size": Vector2( 330, 83 ),
+"values": [  ]
 },
 "name": "priority_condition5",
 "type": 5
@@ -5891,9 +4502,9 @@ tree = {
 "data": {
 "fn": "task_HoldPosition",
 "offset": Vector2( 1400, 1000 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 3 ]
+"params": [  ],
+"size": Vector2( 327, 83 ),
+"values": [  ]
 },
 "name": "priority_condition6",
 "type": 5
@@ -5903,7 +4514,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 1840, 1020 ),
 "params": [  ],
-"size": Vector2( 356, 85 ),
+"size": Vector2( 356, 84.9999 ),
 "values": [  ]
 },
 "name": "task15",
@@ -5912,26 +4523,6 @@ tree = {
 "root": {
 "child": [ {
 "child": [ {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1280, 580 ),
-"params": [  ],
-"size": Vector2( 350, 85.0001 ),
-"values": [  ]
-},
-"name": "task9",
-"type": 1
-} ],
-"data": {
-"offset": Vector2( 1120, 600 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter3",
-"type": 14
-}, {
-"child": [ {
-"child": [ {
 "child": [ {
 "child": [  ],
 "data": {
@@ -6023,9 +4614,9 @@ tree = {
 "data": {
 "fn": "task_canSupport",
 "offset": Vector2( 1400, 720 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 1 ]
+"params": [  ],
+"size": Vector2( 321, 83 ),
+"values": [  ]
 },
 "name": "priority_condition4",
 "type": 5
@@ -6082,9 +4673,9 @@ tree = {
 "data": {
 "fn": "task_canMakeRun",
 "offset": Vector2( 1400, 860 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 2 ]
+"params": [  ],
+"size": Vector2( 330, 83 ),
+"values": [  ]
 },
 "name": "priority_condition5",
 "type": 5
@@ -6095,7 +4686,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 1840, 1020 ),
 "params": [  ],
-"size": Vector2( 356, 85 ),
+"size": Vector2( 356, 84.9999 ),
 "values": [  ]
 },
 "name": "task15",
@@ -6104,9 +4695,9 @@ tree = {
 "data": {
 "fn": "task_HoldPosition",
 "offset": Vector2( 1400, 1000 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 3 ]
+"params": [  ],
+"size": Vector2( 327, 83 ),
+"values": [  ]
 },
 "name": "priority_condition6",
 "type": 5
@@ -6118,6 +4709,14 @@ tree = {
 },
 "name": "priority_selector2",
 "type": 4
+}
+},
+"label": "",
+"offset": Vector2( 1140, 760 ),
+"size": Vector2( 236, 89 )
+},
+"name": "minim_node2",
+"type": 99
 } ],
 "data": {
 "count": 2,
@@ -6126,14 +4725,6 @@ tree = {
 },
 "name": "paralel5",
 "type": 6
-}
-},
-"label": "",
-"offset": Vector2( 900, 600 ),
-"size": Vector2( 236, 89.0001 )
-},
-"name": "minim_node2",
-"type": 99
 } ],
 "data": {
 "count": 2,
@@ -6152,326 +4743,6 @@ tree = {
 "type": 6
 }, {
 "child": [ {
-"child": [  ],
-"data": {
-"data": {
-"connection": [ {
-"from": "paralel3",
-"from_port": 0,
-"to": "task4",
-"to_port": 0
-}, {
-"from": "paralel3",
-"from_port": 1,
-"to": "priority_selector",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 0,
-"to": "priority_condition",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 1,
-"to": "priority_condition2",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 2,
-"to": "priority_condition3",
-"to_port": 0
-}, {
-"from": "priority_condition",
-"from_port": 0,
-"to": "selector3",
-"to_port": 0
-}, {
-"from": "selector3",
-"from_port": 0,
-"to": "sequence8",
-"to_port": 0
-}, {
-"from": "selector3",
-"from_port": 1,
-"to": "sequence9",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 0,
-"to": "task16",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 1,
-"to": "task17",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 2,
-"to": "task18",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 2,
-"to": "task21",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 0,
-"to": "inverter5",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 1,
-"to": "task20",
-"to_port": 0
-}, {
-"from": "inverter5",
-"from_port": 0,
-"to": "task19",
-"to_port": 0
-}, {
-"from": "priority_condition2",
-"from_port": 0,
-"to": "sequence3",
-"to_port": 0
-}, {
-"from": "sequence3",
-"from_port": 0,
-"to": "task5",
-"to_port": 0
-}, {
-"from": "sequence3",
-"from_port": 1,
-"to": "task6",
-"to_port": 0
-}, {
-"from": "priority_condition3",
-"from_port": 0,
-"to": "sequence4",
-"to_port": 0
-}, {
-"from": "sequence4",
-"from_port": 0,
-"to": "task7",
-"to_port": 0
-} ],
-"nodes": [ {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1000, 40 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel3",
-"type": 6
-}, {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1160, -20 ),
-"params": [  ],
-"size": Vector2( 297, 84.9999 ),
-"values": [  ]
-},
-"name": "task4",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 1160, 120 ),
-"size": Vector2( 181, 136 )
-},
-"name": "priority_selector",
-"type": 4
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condPassBall",
-"offset": Vector2( 1480, 80 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 331, 109 ),
-"values": [ 1 ]
-},
-"name": "priority_condition",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1920, -360 ),
-"size": Vector2( 134, 109 )
-},
-"name": "selector3",
-"type": 3
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 2160, -420 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence8",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2420, -560 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task16",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2420, -440 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task17",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2420, -320 ),
-"params": [  ],
-"size": Vector2( 299, 85 ),
-"values": [  ]
-},
-"name": "task18",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 2160, -180 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence9",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"offset": Vector2( 2380, -180 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter5",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2580, -200 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task19",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2580, -100 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task20",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2460, 0 ),
-"params": [  ],
-"size": Vector2( 299, 84.9999 ),
-"values": [  ]
-},
-"name": "task21",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condCrossBall",
-"offset": Vector2( 1480, 200 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 338, 109 ),
-"values": [ 2 ]
-},
-"name": "priority_condition2",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 140 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence3",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2260, 60 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task5",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_crossBall",
-"offset": Vector2( 2260, 180 ),
-"params": [  ],
-"size": Vector2( 303, 84.9999 ),
-"values": [  ]
-},
-"name": "task6",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condProgressBall",
-"offset": Vector2( 1480, 320 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 360, 109 ),
-"values": [ 3 ]
-},
-"name": "priority_condition3",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 320 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence4",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasSpace",
-"offset": Vector2( 2260, 280 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task7",
-"type": 1
-} ],
-"root": {
 "child": [ {
 "child": [  ],
 "data": {
@@ -6481,7 +4752,7 @@ tree = {
 "size": Vector2( 297, 84.9999 ),
 "values": [  ]
 },
-"name": "task4",
+"name": "task8",
 "type": 1
 }, {
 "child": [ {
@@ -6563,7 +4834,7 @@ tree = {
 "child": [  ],
 "data": {
 "fn": "task_passBall",
-"offset": Vector2( 2460, 0 ),
+"offset": Vector2( 2460, -20 ),
 "params": [  ],
 "size": Vector2( 299, 84.9999 ),
 "values": [  ]
@@ -6584,7 +4855,7 @@ tree = {
 "offset": Vector2( 1920, -360 ),
 "size": Vector2( 134, 109 )
 },
-"name": "selector3",
+"name": "selector4",
 "type": 3
 } ],
 "data": {
@@ -6602,23 +4873,23 @@ tree = {
 "child": [  ],
 "data": {
 "fn": "task_hasPassTarget",
-"offset": Vector2( 2260, 60 ),
+"offset": Vector2( 2280, 120 ),
 "params": [  ],
 "size": Vector2( 341, 85.0001 ),
 "values": [  ]
 },
-"name": "task5",
+"name": "task10",
 "type": 1
 }, {
 "child": [  ],
 "data": {
 "fn": "task_crossBall",
-"offset": Vector2( 2260, 180 ),
+"offset": Vector2( 2280, 240 ),
 "params": [  ],
 "size": Vector2( 303, 84.9999 ),
 "values": [  ]
 },
-"name": "task6",
+"name": "task11",
 "type": 1
 } ],
 "data": {
@@ -6640,25 +4911,16 @@ tree = {
 "type": 5
 }, {
 "child": [ {
-"child": [ {
 "child": [  ],
 "data": {
-"fn": "task_hasSpace",
-"offset": Vector2( 2260, 280 ),
+"fn": "task_progressBall",
+"offset": Vector2( 2038.37, 371.301 ),
 "params": [  ],
-"size": Vector2( 341, 85.0001 ),
+"size": Vector2( 328, 85 ),
 "values": [  ]
 },
-"name": "task7",
+"name": "task12",
 "type": 1
-} ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 320 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence4",
-"type": 2
 } ],
 "data": {
 "fn": "task_condProgressBall",
@@ -6683,36 +4945,33 @@ tree = {
 "offset": Vector2( 1000, 40 ),
 "size": Vector2( 128, 109 )
 },
-"name": "paralel3",
+"name": "paralel4",
 "type": 6
-}
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_withBall",
+"offset": Vector2( 1280, 580 ),
+"params": [  ],
+"size": Vector2( 350, 85.0001 ),
+"values": [  ]
 },
-"label": "",
-"offset": Vector2( 1000, 40 ),
-"size": Vector2( 236, 89.0001 )
+"name": "task9",
+"type": 1
+} ],
+"data": {
+"offset": Vector2( 1120, 600 ),
+"size": Vector2( 134, 55 )
 },
-"name": "minim_node",
-"type": 99
+"name": "inverter3",
+"type": 14
 }, {
 "child": [  ],
 "data": {
 "data": {
 "connection": [ {
-"from": "paralel5",
-"from_port": 0,
-"to": "inverter3",
-"to_port": 0
-}, {
-"from": "paralel5",
-"from_port": 1,
-"to": "priority_selector2",
-"to_port": 0
-}, {
-"from": "inverter3",
-"from_port": 0,
-"to": "task9",
-"to_port": 0
-}, {
 "from": "priority_selector2",
 "from_port": 0,
 "to": "priority_condition4",
@@ -6806,34 +5065,6 @@ tree = {
 "nodes": [ {
 "child": [  ],
 "data": {
-"count": 2,
-"offset": Vector2( 900, 600 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel5",
-"type": 6
-}, {
-"child": [  ],
-"data": {
-"offset": Vector2( 1120, 600 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter3",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1280, 580 ),
-"params": [  ],
-"size": Vector2( 350, 85.0001 ),
-"values": [  ]
-},
-"name": "task9",
-"type": 1
-}, {
-"child": [  ],
-"data": {
 "count": 3,
 "offset": Vector2( 1140, 760 ),
 "size": Vector2( 189, 136 )
@@ -6845,9 +5076,9 @@ tree = {
 "data": {
 "fn": "task_canSupport",
 "offset": Vector2( 1400, 720 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 1 ]
+"params": [  ],
+"size": Vector2( 321, 83 ),
+"values": [  ]
 },
 "name": "priority_condition4",
 "type": 5
@@ -6944,9 +5175,9 @@ tree = {
 "data": {
 "fn": "task_canMakeRun",
 "offset": Vector2( 1400, 860 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 2 ]
+"params": [  ],
+"size": Vector2( 330, 83 ),
+"values": [  ]
 },
 "name": "priority_condition5",
 "type": 5
@@ -7003,9 +5234,9 @@ tree = {
 "data": {
 "fn": "task_HoldPosition",
 "offset": Vector2( 1400, 1000 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 3 ]
+"params": [  ],
+"size": Vector2( 327, 83 ),
+"values": [  ]
 },
 "name": "priority_condition6",
 "type": 5
@@ -7015,7 +5246,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 1840, 1020 ),
 "params": [  ],
-"size": Vector2( 356, 85 ),
+"size": Vector2( 356, 84.9999 ),
 "values": [  ]
 },
 "name": "task15",
@@ -7024,26 +5255,6 @@ tree = {
 "root": {
 "child": [ {
 "child": [ {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1280, 580 ),
-"params": [  ],
-"size": Vector2( 350, 85.0001 ),
-"values": [  ]
-},
-"name": "task9",
-"type": 1
-} ],
-"data": {
-"offset": Vector2( 1120, 600 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter3",
-"type": 14
-}, {
-"child": [ {
-"child": [ {
 "child": [ {
 "child": [  ],
 "data": {
@@ -7135,9 +5346,9 @@ tree = {
 "data": {
 "fn": "task_canSupport",
 "offset": Vector2( 1400, 720 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 1 ]
+"params": [  ],
+"size": Vector2( 321, 83 ),
+"values": [  ]
 },
 "name": "priority_condition4",
 "type": 5
@@ -7194,9 +5405,9 @@ tree = {
 "data": {
 "fn": "task_canMakeRun",
 "offset": Vector2( 1400, 860 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 2 ]
+"params": [  ],
+"size": Vector2( 330, 83 ),
+"values": [  ]
 },
 "name": "priority_condition5",
 "type": 5
@@ -7207,7 +5418,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 1840, 1020 ),
 "params": [  ],
-"size": Vector2( 356, 85 ),
+"size": Vector2( 356, 84.9999 ),
 "values": [  ]
 },
 "name": "task15",
@@ -7216,9 +5427,9 @@ tree = {
 "data": {
 "fn": "task_HoldPosition",
 "offset": Vector2( 1400, 1000 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 3 ]
+"params": [  ],
+"size": Vector2( 327, 83 ),
+"values": [  ]
 },
 "name": "priority_condition6",
 "type": 5
@@ -7230,6 +5441,14 @@ tree = {
 },
 "name": "priority_selector2",
 "type": 4
+}
+},
+"label": "",
+"offset": Vector2( 1140, 760 ),
+"size": Vector2( 236, 89 )
+},
+"name": "minim_node2",
+"type": 99
 } ],
 "data": {
 "count": 2,
@@ -7238,14 +5457,6 @@ tree = {
 },
 "name": "paralel5",
 "type": 6
-}
-},
-"label": "",
-"offset": Vector2( 900, 600 ),
-"size": Vector2( 236, 89.0001 )
-},
-"name": "minim_node2",
-"type": 99
 } ],
 "data": {
 "count": 2,
@@ -7254,1101 +5465,6 @@ tree = {
 },
 "name": "selector2",
 "type": 3
-}, {
-"child": [  ],
-"data": {
-"data": {
-"connection": [ {
-"from": "paralel3",
-"from_port": 0,
-"to": "task4",
-"to_port": 0
-}, {
-"from": "paralel3",
-"from_port": 1,
-"to": "priority_selector",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 0,
-"to": "priority_condition",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 1,
-"to": "priority_condition2",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 2,
-"to": "priority_condition3",
-"to_port": 0
-}, {
-"from": "priority_condition",
-"from_port": 0,
-"to": "selector3",
-"to_port": 0
-}, {
-"from": "selector3",
-"from_port": 0,
-"to": "sequence8",
-"to_port": 0
-}, {
-"from": "selector3",
-"from_port": 1,
-"to": "sequence9",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 0,
-"to": "task16",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 1,
-"to": "task17",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 2,
-"to": "task18",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 2,
-"to": "task21",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 0,
-"to": "inverter5",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 1,
-"to": "task20",
-"to_port": 0
-}, {
-"from": "inverter5",
-"from_port": 0,
-"to": "task19",
-"to_port": 0
-}, {
-"from": "priority_condition2",
-"from_port": 0,
-"to": "sequence3",
-"to_port": 0
-}, {
-"from": "sequence3",
-"from_port": 0,
-"to": "task5",
-"to_port": 0
-}, {
-"from": "sequence3",
-"from_port": 1,
-"to": "task6",
-"to_port": 0
-}, {
-"from": "priority_condition3",
-"from_port": 0,
-"to": "sequence4",
-"to_port": 0
-}, {
-"from": "sequence4",
-"from_port": 0,
-"to": "task7",
-"to_port": 0
-} ],
-"nodes": [ {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1000, 40 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel3",
-"type": 6
-}, {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1160, -20 ),
-"params": [  ],
-"size": Vector2( 297, 84.9999 ),
-"values": [  ]
-},
-"name": "task4",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 1160, 120 ),
-"size": Vector2( 181, 136 )
-},
-"name": "priority_selector",
-"type": 4
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condPassBall",
-"offset": Vector2( 1480, 80 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 331, 109 ),
-"values": [ 1 ]
-},
-"name": "priority_condition",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1920, -360 ),
-"size": Vector2( 134, 109 )
-},
-"name": "selector3",
-"type": 3
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 2160, -420 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence8",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2420, -560 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task16",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2420, -440 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task17",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2420, -320 ),
-"params": [  ],
-"size": Vector2( 299, 85 ),
-"values": [  ]
-},
-"name": "task18",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 2160, -180 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence9",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"offset": Vector2( 2380, -180 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter5",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2580, -200 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task19",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2580, -100 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task20",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2460, 0 ),
-"params": [  ],
-"size": Vector2( 299, 84.9999 ),
-"values": [  ]
-},
-"name": "task21",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condCrossBall",
-"offset": Vector2( 1480, 200 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 338, 109 ),
-"values": [ 2 ]
-},
-"name": "priority_condition2",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 140 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence3",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2260, 60 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task5",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_crossBall",
-"offset": Vector2( 2260, 180 ),
-"params": [  ],
-"size": Vector2( 303, 84.9999 ),
-"values": [  ]
-},
-"name": "task6",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condProgressBall",
-"offset": Vector2( 1480, 320 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 360, 109 ),
-"values": [ 3 ]
-},
-"name": "priority_condition3",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 320 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence4",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasSpace",
-"offset": Vector2( 2260, 280 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task7",
-"type": 1
-} ],
-"root": {
-"child": [ {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1160, -20 ),
-"params": [  ],
-"size": Vector2( 297, 84.9999 ),
-"values": [  ]
-},
-"name": "task4",
-"type": 1
-}, {
-"child": [ {
-"child": [ {
-"child": [ {
-"child": [ {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2420, -560 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task16",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2420, -440 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task17",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2420, -320 ),
-"params": [  ],
-"size": Vector2( 299, 85 ),
-"values": [  ]
-},
-"name": "task18",
-"type": 1
-} ],
-"data": {
-"count": 3,
-"offset": Vector2( 2160, -420 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence8",
-"type": 2
-}, {
-"child": [ {
-"child": [ {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2580, -200 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task19",
-"type": 1
-} ],
-"data": {
-"offset": Vector2( 2380, -180 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter5",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2580, -100 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task20",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2460, 0 ),
-"params": [  ],
-"size": Vector2( 299, 84.9999 ),
-"values": [  ]
-},
-"name": "task21",
-"type": 1
-} ],
-"data": {
-"count": 3,
-"offset": Vector2( 2160, -180 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence9",
-"type": 2
-} ],
-"data": {
-"count": 2,
-"offset": Vector2( 1920, -360 ),
-"size": Vector2( 134, 109 )
-},
-"name": "selector3",
-"type": 3
-} ],
-"data": {
-"fn": "task_condPassBall",
-"offset": Vector2( 1480, 80 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 331, 109 ),
-"values": [ 1 ]
-},
-"name": "priority_condition",
-"type": 5
-}, {
-"child": [ {
-"child": [ {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2260, 60 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task5",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_crossBall",
-"offset": Vector2( 2260, 180 ),
-"params": [  ],
-"size": Vector2( 303, 84.9999 ),
-"values": [  ]
-},
-"name": "task6",
-"type": 1
-} ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 140 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence3",
-"type": 2
-} ],
-"data": {
-"fn": "task_condCrossBall",
-"offset": Vector2( 1480, 200 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 338, 109 ),
-"values": [ 2 ]
-},
-"name": "priority_condition2",
-"type": 5
-}, {
-"child": [ {
-"child": [ {
-"child": [  ],
-"data": {
-"fn": "task_hasSpace",
-"offset": Vector2( 2260, 280 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task7",
-"type": 1
-} ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 320 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence4",
-"type": 2
-} ],
-"data": {
-"fn": "task_condProgressBall",
-"offset": Vector2( 1480, 320 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 360, 109 ),
-"values": [ 3 ]
-},
-"name": "priority_condition3",
-"type": 5
-} ],
-"data": {
-"count": 3,
-"offset": Vector2( 1160, 120 ),
-"size": Vector2( 181, 136 )
-},
-"name": "priority_selector",
-"type": 4
-} ],
-"data": {
-"count": 2,
-"offset": Vector2( 1000, 40 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel3",
-"type": 6
-}
-},
-"label": "",
-"offset": Vector2( 1000, 40 ),
-"size": Vector2( 236, 89.0001 )
-},
-"name": "minim_node",
-"type": 99
-}, {
-"child": [  ],
-"data": {
-"data": {
-"connection": [ {
-"from": "paralel5",
-"from_port": 0,
-"to": "inverter3",
-"to_port": 0
-}, {
-"from": "paralel5",
-"from_port": 1,
-"to": "priority_selector2",
-"to_port": 0
-}, {
-"from": "inverter3",
-"from_port": 0,
-"to": "task9",
-"to_port": 0
-}, {
-"from": "priority_selector2",
-"from_port": 0,
-"to": "priority_condition4",
-"to_port": 0
-}, {
-"from": "priority_selector2",
-"from_port": 1,
-"to": "priority_condition5",
-"to_port": 0
-}, {
-"from": "priority_selector2",
-"from_port": 2,
-"to": "priority_condition6",
-"to_port": 0
-}, {
-"from": "priority_condition4",
-"from_port": 0,
-"to": "paralel4",
-"to_port": 0
-}, {
-"from": "paralel4",
-"from_port": 0,
-"to": "task8",
-"to_port": 0
-}, {
-"from": "paralel4",
-"from_port": 1,
-"to": "sequence6",
-"to_port": 0
-}, {
-"from": "sequence6",
-"from_port": 0,
-"to": "task10",
-"to_port": 0
-}, {
-"from": "sequence6",
-"from_port": 1,
-"to": "inverter",
-"to_port": 0
-}, {
-"from": "inverter",
-"from_port": 0,
-"to": "repeat",
-"to_port": 0
-}, {
-"from": "repeat",
-"from_port": 0,
-"to": "sequence5",
-"to_port": 0
-}, {
-"from": "sequence5",
-"from_port": 0,
-"to": "task11",
-"to_port": 0
-}, {
-"from": "sequence5",
-"from_port": 1,
-"to": "task12",
-"to_port": 0
-}, {
-"from": "priority_condition5",
-"from_port": 0,
-"to": "inverter4",
-"to_port": 0
-}, {
-"from": "inverter4",
-"from_port": 0,
-"to": "repeat2",
-"to_port": 0
-}, {
-"from": "repeat2",
-"from_port": 0,
-"to": "sequence7",
-"to_port": 0
-}, {
-"from": "sequence7",
-"from_port": 0,
-"to": "task13",
-"to_port": 0
-}, {
-"from": "sequence7",
-"from_port": 1,
-"to": "task14",
-"to_port": 0
-}, {
-"from": "priority_condition6",
-"from_port": 0,
-"to": "task15",
-"to_port": 0
-} ],
-"nodes": [ {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 900, 600 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel5",
-"type": 6
-}, {
-"child": [  ],
-"data": {
-"offset": Vector2( 1120, 600 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter3",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1280, 580 ),
-"params": [  ],
-"size": Vector2( 350, 85.0001 ),
-"values": [  ]
-},
-"name": "task9",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 1140, 760 ),
-"size": Vector2( 189, 136 )
-},
-"name": "priority_selector2",
-"type": 4
-}, {
-"child": [  ],
-"data": {
-"fn": "task_canSupport",
-"offset": Vector2( 1400, 720 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 1 ]
-},
-"name": "priority_condition4",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1800, 580 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel4",
-"type": 6
-}, {
-"child": [  ],
-"data": {
-"fn": "task_supportPlayer",
-"offset": Vector2( 2000, 460 ),
-"params": [  ],
-"size": Vector2( 350, 85 ),
-"values": [  ]
-},
-"name": "task8",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 2000, 600 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence6",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_isPressed",
-"offset": Vector2( 2380, 540 ),
-"params": [  ],
-"size": Vector2( 350, 85 ),
-"values": [  ]
-},
-"name": "task10",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"offset": Vector2( 2240, 680 ),
-"size": Vector2( 126, 55 )
-},
-"name": "inverter",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"count": 0.0,
-"offset": Vector2( 2420, 680 ),
-"size": Vector2( 196, 55 )
-},
-"name": "repeat",
-"type": 8
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 2680, 680 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence5",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_getFreeLocation",
-"offset": Vector2( 2960, 640 ),
-"params": [  ],
-"size": Vector2( 350, 85 ),
-"values": [  ]
-},
-"name": "task11",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_move",
-"offset": Vector2( 2960, 760 ),
-"params": [  ],
-"size": Vector2( 350, 84.9999 ),
-"values": [  ]
-},
-"name": "task12",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_canMakeRun",
-"offset": Vector2( 1400, 860 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 2 ]
-},
-"name": "priority_condition5",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"offset": Vector2( 1820, 860 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter4",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"count": 0.0,
-"offset": Vector2( 2020, 860 ),
-"size": Vector2( 196, 55 )
-},
-"name": "repeat2",
-"type": 8
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 2280, 860 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence7",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_getFreeLocation",
-"offset": Vector2( 2500, 860 ),
-"params": [  ],
-"size": Vector2( 350, 85 ),
-"values": [  ]
-},
-"name": "task13",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_move",
-"offset": Vector2( 2500, 980 ),
-"params": [  ],
-"size": Vector2( 350, 84.9999 ),
-"values": [  ]
-},
-"name": "task14",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_HoldPosition",
-"offset": Vector2( 1400, 1000 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 3 ]
-},
-"name": "priority_condition6",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"fn": "task_maintainPosition",
-"offset": Vector2( 1840, 1020 ),
-"params": [  ],
-"size": Vector2( 356, 85 ),
-"values": [  ]
-},
-"name": "task15",
-"type": 1
-} ],
-"root": {
-"child": [ {
-"child": [ {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1280, 580 ),
-"params": [  ],
-"size": Vector2( 350, 85.0001 ),
-"values": [  ]
-},
-"name": "task9",
-"type": 1
-} ],
-"data": {
-"offset": Vector2( 1120, 600 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter3",
-"type": 14
-}, {
-"child": [ {
-"child": [ {
-"child": [ {
-"child": [  ],
-"data": {
-"fn": "task_supportPlayer",
-"offset": Vector2( 2000, 460 ),
-"params": [  ],
-"size": Vector2( 350, 85 ),
-"values": [  ]
-},
-"name": "task8",
-"type": 1
-}, {
-"child": [ {
-"child": [  ],
-"data": {
-"fn": "task_isPressed",
-"offset": Vector2( 2380, 540 ),
-"params": [  ],
-"size": Vector2( 350, 85 ),
-"values": [  ]
-},
-"name": "task10",
-"type": 1
-}, {
-"child": [ {
-"child": [ {
-"child": [ {
-"child": [  ],
-"data": {
-"fn": "task_getFreeLocation",
-"offset": Vector2( 2960, 640 ),
-"params": [  ],
-"size": Vector2( 350, 85 ),
-"values": [  ]
-},
-"name": "task11",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_move",
-"offset": Vector2( 2960, 760 ),
-"params": [  ],
-"size": Vector2( 350, 84.9999 ),
-"values": [  ]
-},
-"name": "task12",
-"type": 1
-} ],
-"data": {
-"count": 2,
-"offset": Vector2( 2680, 680 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence5",
-"type": 2
-} ],
-"data": {
-"count": 0.0,
-"offset": Vector2( 2420, 680 ),
-"size": Vector2( 196, 55 )
-},
-"name": "repeat",
-"type": 8
-} ],
-"data": {
-"offset": Vector2( 2240, 680 ),
-"size": Vector2( 126, 55 )
-},
-"name": "inverter",
-"type": 14
-} ],
-"data": {
-"count": 3,
-"offset": Vector2( 2000, 600 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence6",
-"type": 2
-} ],
-"data": {
-"count": 2,
-"offset": Vector2( 1800, 580 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel4",
-"type": 6
-} ],
-"data": {
-"fn": "task_canSupport",
-"offset": Vector2( 1400, 720 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 1 ]
-},
-"name": "priority_condition4",
-"type": 5
-}, {
-"child": [ {
-"child": [ {
-"child": [ {
-"child": [ {
-"child": [  ],
-"data": {
-"fn": "task_getFreeLocation",
-"offset": Vector2( 2500, 860 ),
-"params": [  ],
-"size": Vector2( 350, 85 ),
-"values": [  ]
-},
-"name": "task13",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_move",
-"offset": Vector2( 2500, 980 ),
-"params": [  ],
-"size": Vector2( 350, 84.9999 ),
-"values": [  ]
-},
-"name": "task14",
-"type": 1
-} ],
-"data": {
-"count": 2,
-"offset": Vector2( 2280, 860 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence7",
-"type": 2
-} ],
-"data": {
-"count": 0.0,
-"offset": Vector2( 2020, 860 ),
-"size": Vector2( 196, 55 )
-},
-"name": "repeat2",
-"type": 8
-} ],
-"data": {
-"offset": Vector2( 1820, 860 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter4",
-"type": 14
-} ],
-"data": {
-"fn": "task_canMakeRun",
-"offset": Vector2( 1400, 860 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 2 ]
-},
-"name": "priority_condition5",
-"type": 5
-}, {
-"child": [ {
-"child": [  ],
-"data": {
-"fn": "task_maintainPosition",
-"offset": Vector2( 1840, 1020 ),
-"params": [  ],
-"size": Vector2( 356, 85 ),
-"values": [  ]
-},
-"name": "task15",
-"type": 1
-} ],
-"data": {
-"fn": "task_HoldPosition",
-"offset": Vector2( 1400, 1000 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 3 ]
-},
-"name": "priority_condition6",
-"type": 5
-} ],
-"data": {
-"count": 3,
-"offset": Vector2( 1140, 760 ),
-"size": Vector2( 189, 136 )
-},
-"name": "priority_selector2",
-"type": 4
-} ],
-"data": {
-"count": 2,
-"offset": Vector2( 900, 600 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel5",
-"type": 6
-}
-},
-"label": "",
-"offset": Vector2( 900, 600 ),
-"size": Vector2( 236, 89.0001 )
-},
-"name": "minim_node2",
-"type": 99
 }, {
 "child": [  ],
 "data": {
@@ -8770,7 +5886,7 @@ tree = {
 },
 "label": "",
 "offset": Vector2( 780, 940 ),
-"size": Vector2( 236, 89.0002 )
+"size": Vector2( 236, 89.0005 )
 },
 "name": "minim_node3",
 "type": 99
@@ -9204,7 +6320,7 @@ tree = {
 },
 "label": "",
 "offset": Vector2( 780, 940 ),
-"size": Vector2( 236, 89.0002 )
+"size": Vector2( 236, 89.0005 )
 },
 "name": "minim_node3",
 "type": 99
@@ -9222,7 +6338,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 500, 1080 ),
 "params": [  ],
-"size": Vector2( 356, 85.0001 ),
+"size": Vector2( 356, 85.0005 ),
 "values": [  ]
 },
 "name": "task5",
@@ -9633,7 +6749,7 @@ tree = {
 },
 "label": "",
 "offset": Vector2( 780, 940 ),
-"size": Vector2( 236, 89.0002 )
+"size": Vector2( 236, 89.0005 )
 },
 "name": "minim_node3",
 "type": 99
@@ -9704,7 +6820,7 @@ tree = {
 "fn": "task_matchStart",
 "offset": Vector2( 220, 100 ),
 "params": [  ],
-"size": Vector2( 317.001, 84.9997 ),
+"size": Vector2( 317.001, 84.9996 ),
 "values": [  ]
 },
 "name": "task",
@@ -9726,7 +6842,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 500, 1080 ),
 "params": [  ],
-"size": Vector2( 356, 85.0001 ),
+"size": Vector2( 356, 85.0005 ),
 "values": [  ]
 },
 "name": "task5",
@@ -9738,7 +6854,7 @@ tree = {
 "fn": "task_matchStart",
 "offset": Vector2( 220, 100 ),
 "params": [  ],
-"size": Vector2( 317.001, 84.9997 ),
+"size": Vector2( 317.001, 84.9996 ),
 "values": [  ]
 },
 "name": "task",
@@ -9758,326 +6874,6 @@ tree = {
 "type": 1
 }, {
 "child": [ {
-"child": [  ],
-"data": {
-"data": {
-"connection": [ {
-"from": "paralel3",
-"from_port": 0,
-"to": "task4",
-"to_port": 0
-}, {
-"from": "paralel3",
-"from_port": 1,
-"to": "priority_selector",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 0,
-"to": "priority_condition",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 1,
-"to": "priority_condition2",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 2,
-"to": "priority_condition3",
-"to_port": 0
-}, {
-"from": "priority_condition",
-"from_port": 0,
-"to": "selector3",
-"to_port": 0
-}, {
-"from": "selector3",
-"from_port": 0,
-"to": "sequence8",
-"to_port": 0
-}, {
-"from": "selector3",
-"from_port": 1,
-"to": "sequence9",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 0,
-"to": "task16",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 1,
-"to": "task17",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 2,
-"to": "task18",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 2,
-"to": "task21",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 0,
-"to": "inverter5",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 1,
-"to": "task20",
-"to_port": 0
-}, {
-"from": "inverter5",
-"from_port": 0,
-"to": "task19",
-"to_port": 0
-}, {
-"from": "priority_condition2",
-"from_port": 0,
-"to": "sequence3",
-"to_port": 0
-}, {
-"from": "sequence3",
-"from_port": 0,
-"to": "task5",
-"to_port": 0
-}, {
-"from": "sequence3",
-"from_port": 1,
-"to": "task6",
-"to_port": 0
-}, {
-"from": "priority_condition3",
-"from_port": 0,
-"to": "sequence4",
-"to_port": 0
-}, {
-"from": "sequence4",
-"from_port": 0,
-"to": "task7",
-"to_port": 0
-} ],
-"nodes": [ {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1000, 40 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel3",
-"type": 6
-}, {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1160, -20 ),
-"params": [  ],
-"size": Vector2( 297, 84.9999 ),
-"values": [  ]
-},
-"name": "task4",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 1160, 120 ),
-"size": Vector2( 181, 136 )
-},
-"name": "priority_selector",
-"type": 4
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condPassBall",
-"offset": Vector2( 1480, 80 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 331, 109 ),
-"values": [ 1 ]
-},
-"name": "priority_condition",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1920, -360 ),
-"size": Vector2( 134, 109 )
-},
-"name": "selector3",
-"type": 3
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 2160, -420 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence8",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2420, -560 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task16",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2420, -440 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task17",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2420, -320 ),
-"params": [  ],
-"size": Vector2( 299, 85 ),
-"values": [  ]
-},
-"name": "task18",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 2160, -180 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence9",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"offset": Vector2( 2380, -180 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter5",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2580, -200 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task19",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2580, -100 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task20",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2460, 0 ),
-"params": [  ],
-"size": Vector2( 299, 84.9999 ),
-"values": [  ]
-},
-"name": "task21",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condCrossBall",
-"offset": Vector2( 1480, 200 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 338, 109 ),
-"values": [ 2 ]
-},
-"name": "priority_condition2",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 140 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence3",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2260, 60 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task5",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_crossBall",
-"offset": Vector2( 2260, 180 ),
-"params": [  ],
-"size": Vector2( 303, 84.9999 ),
-"values": [  ]
-},
-"name": "task6",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condProgressBall",
-"offset": Vector2( 1480, 320 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 360, 109 ),
-"values": [ 3 ]
-},
-"name": "priority_condition3",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 320 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence4",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasSpace",
-"offset": Vector2( 2260, 280 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task7",
-"type": 1
-} ],
-"root": {
 "child": [ {
 "child": [  ],
 "data": {
@@ -10087,7 +6883,7 @@ tree = {
 "size": Vector2( 297, 84.9999 ),
 "values": [  ]
 },
-"name": "task4",
+"name": "task8",
 "type": 1
 }, {
 "child": [ {
@@ -10169,7 +6965,7 @@ tree = {
 "child": [  ],
 "data": {
 "fn": "task_passBall",
-"offset": Vector2( 2460, 0 ),
+"offset": Vector2( 2460, -20 ),
 "params": [  ],
 "size": Vector2( 299, 84.9999 ),
 "values": [  ]
@@ -10190,7 +6986,7 @@ tree = {
 "offset": Vector2( 1920, -360 ),
 "size": Vector2( 134, 109 )
 },
-"name": "selector3",
+"name": "selector4",
 "type": 3
 } ],
 "data": {
@@ -10208,23 +7004,23 @@ tree = {
 "child": [  ],
 "data": {
 "fn": "task_hasPassTarget",
-"offset": Vector2( 2260, 60 ),
+"offset": Vector2( 2280, 120 ),
 "params": [  ],
 "size": Vector2( 341, 85.0001 ),
 "values": [  ]
 },
-"name": "task5",
+"name": "task10",
 "type": 1
 }, {
 "child": [  ],
 "data": {
 "fn": "task_crossBall",
-"offset": Vector2( 2260, 180 ),
+"offset": Vector2( 2280, 240 ),
 "params": [  ],
 "size": Vector2( 303, 84.9999 ),
 "values": [  ]
 },
-"name": "task6",
+"name": "task11",
 "type": 1
 } ],
 "data": {
@@ -10246,25 +7042,16 @@ tree = {
 "type": 5
 }, {
 "child": [ {
-"child": [ {
 "child": [  ],
 "data": {
-"fn": "task_hasSpace",
-"offset": Vector2( 2260, 280 ),
+"fn": "task_progressBall",
+"offset": Vector2( 2038.37, 371.301 ),
 "params": [  ],
-"size": Vector2( 341, 85.0001 ),
+"size": Vector2( 328, 85 ),
 "values": [  ]
 },
-"name": "task7",
+"name": "task12",
 "type": 1
-} ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 320 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence4",
-"type": 2
 } ],
 "data": {
 "fn": "task_condProgressBall",
@@ -10289,36 +7076,33 @@ tree = {
 "offset": Vector2( 1000, 40 ),
 "size": Vector2( 128, 109 )
 },
-"name": "paralel3",
+"name": "paralel4",
 "type": 6
-}
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_withBall",
+"offset": Vector2( 1280, 580 ),
+"params": [  ],
+"size": Vector2( 350, 85.0001 ),
+"values": [  ]
 },
-"label": "",
-"offset": Vector2( 1000, 40 ),
-"size": Vector2( 236, 89.0001 )
+"name": "task9",
+"type": 1
+} ],
+"data": {
+"offset": Vector2( 1120, 600 ),
+"size": Vector2( 134, 55 )
 },
-"name": "minim_node",
-"type": 99
+"name": "inverter3",
+"type": 14
 }, {
 "child": [  ],
 "data": {
 "data": {
 "connection": [ {
-"from": "paralel5",
-"from_port": 0,
-"to": "inverter3",
-"to_port": 0
-}, {
-"from": "paralel5",
-"from_port": 1,
-"to": "priority_selector2",
-"to_port": 0
-}, {
-"from": "inverter3",
-"from_port": 0,
-"to": "task9",
-"to_port": 0
-}, {
 "from": "priority_selector2",
 "from_port": 0,
 "to": "priority_condition4",
@@ -10412,34 +7196,6 @@ tree = {
 "nodes": [ {
 "child": [  ],
 "data": {
-"count": 2,
-"offset": Vector2( 900, 600 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel5",
-"type": 6
-}, {
-"child": [  ],
-"data": {
-"offset": Vector2( 1120, 600 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter3",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1280, 580 ),
-"params": [  ],
-"size": Vector2( 350, 85.0001 ),
-"values": [  ]
-},
-"name": "task9",
-"type": 1
-}, {
-"child": [  ],
-"data": {
 "count": 3,
 "offset": Vector2( 1140, 760 ),
 "size": Vector2( 189, 136 )
@@ -10451,9 +7207,9 @@ tree = {
 "data": {
 "fn": "task_canSupport",
 "offset": Vector2( 1400, 720 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 1 ]
+"params": [  ],
+"size": Vector2( 321, 83 ),
+"values": [  ]
 },
 "name": "priority_condition4",
 "type": 5
@@ -10550,9 +7306,9 @@ tree = {
 "data": {
 "fn": "task_canMakeRun",
 "offset": Vector2( 1400, 860 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 2 ]
+"params": [  ],
+"size": Vector2( 330, 83 ),
+"values": [  ]
 },
 "name": "priority_condition5",
 "type": 5
@@ -10609,9 +7365,9 @@ tree = {
 "data": {
 "fn": "task_HoldPosition",
 "offset": Vector2( 1400, 1000 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 3 ]
+"params": [  ],
+"size": Vector2( 327, 83 ),
+"values": [  ]
 },
 "name": "priority_condition6",
 "type": 5
@@ -10621,7 +7377,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 1840, 1020 ),
 "params": [  ],
-"size": Vector2( 356, 85 ),
+"size": Vector2( 356, 84.9999 ),
 "values": [  ]
 },
 "name": "task15",
@@ -10630,26 +7386,6 @@ tree = {
 "root": {
 "child": [ {
 "child": [ {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1280, 580 ),
-"params": [  ],
-"size": Vector2( 350, 85.0001 ),
-"values": [  ]
-},
-"name": "task9",
-"type": 1
-} ],
-"data": {
-"offset": Vector2( 1120, 600 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter3",
-"type": 14
-}, {
-"child": [ {
-"child": [ {
 "child": [ {
 "child": [  ],
 "data": {
@@ -10741,9 +7477,9 @@ tree = {
 "data": {
 "fn": "task_canSupport",
 "offset": Vector2( 1400, 720 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 1 ]
+"params": [  ],
+"size": Vector2( 321, 83 ),
+"values": [  ]
 },
 "name": "priority_condition4",
 "type": 5
@@ -10800,9 +7536,9 @@ tree = {
 "data": {
 "fn": "task_canMakeRun",
 "offset": Vector2( 1400, 860 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 2 ]
+"params": [  ],
+"size": Vector2( 330, 83 ),
+"values": [  ]
 },
 "name": "priority_condition5",
 "type": 5
@@ -10813,7 +7549,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 1840, 1020 ),
 "params": [  ],
-"size": Vector2( 356, 85 ),
+"size": Vector2( 356, 84.9999 ),
 "values": [  ]
 },
 "name": "task15",
@@ -10822,9 +7558,9 @@ tree = {
 "data": {
 "fn": "task_HoldPosition",
 "offset": Vector2( 1400, 1000 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 3 ]
+"params": [  ],
+"size": Vector2( 327, 83 ),
+"values": [  ]
 },
 "name": "priority_condition6",
 "type": 5
@@ -10836,6 +7572,14 @@ tree = {
 },
 "name": "priority_selector2",
 "type": 4
+}
+},
+"label": "",
+"offset": Vector2( 1140, 760 ),
+"size": Vector2( 236, 89 )
+},
+"name": "minim_node2",
+"type": 99
 } ],
 "data": {
 "count": 2,
@@ -10844,14 +7588,6 @@ tree = {
 },
 "name": "paralel5",
 "type": 6
-}
-},
-"label": "",
-"offset": Vector2( 900, 600 ),
-"size": Vector2( 236, 89.0001 )
-},
-"name": "minim_node2",
-"type": 99
 } ],
 "data": {
 "count": 2,
@@ -11279,7 +8015,7 @@ tree = {
 },
 "label": "",
 "offset": Vector2( 780, 940 ),
-"size": Vector2( 236, 89.0002 )
+"size": Vector2( 236, 89.0005 )
 },
 "name": "minim_node3",
 "type": 99
@@ -11297,7 +8033,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 500, 1080 ),
 "params": [  ],
-"size": Vector2( 356, 85.0001 ),
+"size": Vector2( 356, 85.0005 ),
 "values": [  ]
 },
 "name": "task5",
@@ -11326,647 +8062,31 @@ tree = {
 },
 "name": "paralel",
 "type": 6
-} ],
-"root": {
-"child": [ {
-"child": [ {
-"child": [ {
-"child": [ {
-"child": [  ],
-"data": {
-"fn": "task_matchStart",
-"offset": Vector2( 380, -360 ),
-"params": [  ],
-"size": Vector2( 317, 85 ),
-"values": [  ]
-},
-"name": "task2",
-"type": 1
-} ],
-"data": {
-"offset": Vector2( 200, -260 ),
-"size": Vector2( 134.001, 55 )
-},
-"name": "inverter2",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"fn": "task_kickOffPlayer",
-"offset": Vector2( 240, -180 ),
-"params": [  ],
-"size": Vector2( 380, 85 ),
-"values": [  ]
-},
-"name": "task6",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_kickOff",
-"offset": Vector2( 240, -60 ),
-"params": [  ],
-"size": Vector2( 380, 84.9998 ),
-"values": [  ]
-},
-"name": "task7",
-"type": 1
-} ],
-"data": {
-"count": 3,
-"offset": Vector2( -20, -200 ),
-"size": Vector2( 138, 136 )
-},
-"name": "sequence",
-"type": 2
 }, {
 "child": [ {
-"child": [  ],
-"data": {
-"fn": "task_matchStart",
-"offset": Vector2( 220, 100 ),
-"params": [  ],
-"size": Vector2( 317.001, 84.9997 ),
-"values": [  ]
-},
-"name": "task",
-"type": 1
-}, {
-"child": [ {
-"child": [ {
-"child": [  ],
-"data": {
-"fn": "task_teamPossession",
-"offset": Vector2( 580, 240 ),
-"params": [  ],
-"size": Vector2( 350, 85.0002 ),
-"values": [  ]
-},
-"name": "task3",
-"type": 1
-}, {
-"child": [ {
-"child": [  ],
-"data": {
-"data": {
-"connection": [ {
-"from": "paralel3",
-"from_port": 0,
-"to": "task4",
-"to_port": 0
-}, {
-"from": "paralel3",
-"from_port": 1,
-"to": "priority_selector",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 0,
-"to": "priority_condition",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 1,
-"to": "priority_condition2",
-"to_port": 0
-}, {
-"from": "priority_selector",
-"from_port": 2,
-"to": "priority_condition3",
-"to_port": 0
-}, {
-"from": "priority_condition",
-"from_port": 0,
-"to": "selector3",
-"to_port": 0
-}, {
-"from": "selector3",
-"from_port": 0,
-"to": "sequence8",
-"to_port": 0
-}, {
-"from": "selector3",
-"from_port": 1,
-"to": "sequence9",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 0,
-"to": "task16",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 1,
-"to": "task17",
-"to_port": 0
-}, {
-"from": "sequence8",
-"from_port": 2,
-"to": "task18",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 2,
-"to": "task21",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 0,
-"to": "inverter5",
-"to_port": 0
-}, {
-"from": "sequence9",
-"from_port": 1,
-"to": "task20",
-"to_port": 0
-}, {
-"from": "inverter5",
-"from_port": 0,
-"to": "task19",
-"to_port": 0
-}, {
-"from": "priority_condition2",
-"from_port": 0,
-"to": "sequence3",
-"to_port": 0
-}, {
-"from": "sequence3",
-"from_port": 0,
-"to": "task5",
-"to_port": 0
-}, {
-"from": "sequence3",
-"from_port": 1,
-"to": "task6",
-"to_port": 0
-}, {
-"from": "priority_condition3",
-"from_port": 0,
-"to": "sequence4",
-"to_port": 0
-}, {
-"from": "sequence4",
-"from_port": 0,
-"to": "task7",
-"to_port": 0
-} ],
-"nodes": [ {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1000, 40 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel3",
-"type": 6
-}, {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1160, -20 ),
-"params": [  ],
-"size": Vector2( 297, 84.9999 ),
-"values": [  ]
-},
-"name": "task4",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 1160, 120 ),
-"size": Vector2( 181, 136 )
-},
-"name": "priority_selector",
-"type": 4
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condPassBall",
-"offset": Vector2( 1480, 80 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 331, 109 ),
-"values": [ 1 ]
-},
-"name": "priority_condition",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1920, -360 ),
-"size": Vector2( 134, 109 )
-},
-"name": "selector3",
-"type": 3
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 2160, -420 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence8",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2420, -560 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task16",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2420, -440 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task17",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2420, -320 ),
-"params": [  ],
-"size": Vector2( 299, 85 ),
-"values": [  ]
-},
-"name": "task18",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"count": 3,
-"offset": Vector2( 2160, -180 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence9",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"offset": Vector2( 2380, -180 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter5",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2580, -200 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task19",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2580, -100 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task20",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2460, 0 ),
-"params": [  ],
-"size": Vector2( 299, 84.9999 ),
-"values": [  ]
-},
-"name": "task21",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condCrossBall",
-"offset": Vector2( 1480, 200 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 338, 109 ),
-"values": [ 2 ]
-},
-"name": "priority_condition2",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 140 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence3",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2260, 60 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task5",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_crossBall",
-"offset": Vector2( 2260, 180 ),
-"params": [  ],
-"size": Vector2( 303, 84.9999 ),
-"values": [  ]
-},
-"name": "task6",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_condProgressBall",
-"offset": Vector2( 1480, 320 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 360, 109 ),
-"values": [ 3 ]
-},
-"name": "priority_condition3",
-"type": 5
-}, {
-"child": [  ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 320 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence4",
-"type": 2
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasSpace",
-"offset": Vector2( 2260, 280 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task7",
-"type": 1
-} ],
-"root": {
 "child": [ {
 "child": [  ],
 "data": {
 "fn": "task_withBall",
-"offset": Vector2( 1160, -20 ),
+"offset": Vector2( 1280, 580 ),
 "params": [  ],
-"size": Vector2( 297, 84.9999 ),
+"size": Vector2( 350, 85.0001 ),
 "values": [  ]
 },
-"name": "task4",
-"type": 1
-}, {
-"child": [ {
-"child": [ {
-"child": [ {
-"child": [ {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2420, -560 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task16",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2420, -440 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task17",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2420, -320 ),
-"params": [  ],
-"size": Vector2( 299, 85 ),
-"values": [  ]
-},
-"name": "task18",
+"name": "task9",
 "type": 1
 } ],
 "data": {
-"count": 3,
-"offset": Vector2( 2160, -420 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence8",
-"type": 2
-}, {
-"child": [ {
-"child": [ {
-"child": [  ],
-"data": {
-"fn": "task_forwardPass",
-"offset": Vector2( 2580, -200 ),
-"params": [  ],
-"size": Vector2( 326, 85 ),
-"values": [  ]
-},
-"name": "task19",
-"type": 1
-} ],
-"data": {
-"offset": Vector2( 2380, -180 ),
+"offset": Vector2( 1120, 600 ),
 "size": Vector2( 134, 55 )
 },
-"name": "inverter5",
+"name": "inverter3",
 "type": 14
-}, {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2580, -100 ),
-"params": [  ],
-"size": Vector2( 341, 85 ),
-"values": [  ]
-},
-"name": "task20",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_passBall",
-"offset": Vector2( 2460, 0 ),
-"params": [  ],
-"size": Vector2( 299, 84.9999 ),
-"values": [  ]
-},
-"name": "task21",
-"type": 1
-} ],
-"data": {
-"count": 3,
-"offset": Vector2( 2160, -180 ),
-"size": Vector2( 146, 136 )
-},
-"name": "sequence9",
-"type": 2
-} ],
-"data": {
-"count": 2,
-"offset": Vector2( 1920, -360 ),
-"size": Vector2( 134, 109 )
-},
-"name": "selector3",
-"type": 3
-} ],
-"data": {
-"fn": "task_condPassBall",
-"offset": Vector2( 1480, 80 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 331, 109 ),
-"values": [ 1 ]
-},
-"name": "priority_condition",
-"type": 5
-}, {
-"child": [ {
-"child": [ {
-"child": [  ],
-"data": {
-"fn": "task_hasPassTarget",
-"offset": Vector2( 2260, 60 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task5",
-"type": 1
-}, {
-"child": [  ],
-"data": {
-"fn": "task_crossBall",
-"offset": Vector2( 2260, 180 ),
-"params": [  ],
-"size": Vector2( 303, 84.9999 ),
-"values": [  ]
-},
-"name": "task6",
-"type": 1
-} ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 140 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence3",
-"type": 2
-} ],
-"data": {
-"fn": "task_condCrossBall",
-"offset": Vector2( 1480, 200 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 338, 109 ),
-"values": [ 2 ]
-},
-"name": "priority_condition2",
-"type": 5
-}, {
-"child": [ {
-"child": [ {
-"child": [  ],
-"data": {
-"fn": "task_hasSpace",
-"offset": Vector2( 2260, 280 ),
-"params": [  ],
-"size": Vector2( 341, 85.0001 ),
-"values": [  ]
-},
-"name": "task7",
-"type": 1
-} ],
-"data": {
-"count": 2,
-"offset": Vector2( 1980, 320 ),
-"size": Vector2( 146, 109 )
-},
-"name": "sequence4",
-"type": 2
-} ],
-"data": {
-"fn": "task_condProgressBall",
-"offset": Vector2( 1480, 320 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 360, 109 ),
-"values": [ 3 ]
-},
-"name": "priority_condition3",
-"type": 5
-} ],
-"data": {
-"count": 3,
-"offset": Vector2( 1160, 120 ),
-"size": Vector2( 181, 136 )
-},
-"name": "priority_selector",
-"type": 4
-} ],
-"data": {
-"count": 2,
-"offset": Vector2( 1000, 40 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel3",
-"type": 6
-}
-},
-"label": "",
-"offset": Vector2( 1000, 40 ),
-"size": Vector2( 236, 89.0001 )
-},
-"name": "minim_node",
-"type": 99
 }, {
 "child": [  ],
 "data": {
 "data": {
 "connection": [ {
-"from": "paralel5",
-"from_port": 0,
-"to": "inverter3",
-"to_port": 0
-}, {
-"from": "paralel5",
-"from_port": 1,
-"to": "priority_selector2",
-"to_port": 0
-}, {
-"from": "inverter3",
-"from_port": 0,
-"to": "task9",
-"to_port": 0
-}, {
 "from": "priority_selector2",
 "from_port": 0,
 "to": "priority_condition4",
@@ -12060,34 +8180,6 @@ tree = {
 "nodes": [ {
 "child": [  ],
 "data": {
-"count": 2,
-"offset": Vector2( 900, 600 ),
-"size": Vector2( 128, 109 )
-},
-"name": "paralel5",
-"type": 6
-}, {
-"child": [  ],
-"data": {
-"offset": Vector2( 1120, 600 ),
-"size": Vector2( 134, 55 )
-},
-"name": "inverter3",
-"type": 14
-}, {
-"child": [  ],
-"data": {
-"fn": "task_withBall",
-"offset": Vector2( 1280, 580 ),
-"params": [  ],
-"size": Vector2( 350, 85.0001 ),
-"values": [  ]
-},
-"name": "task9",
-"type": 1
-}, {
-"child": [  ],
-"data": {
 "count": 3,
 "offset": Vector2( 1140, 760 ),
 "size": Vector2( 189, 136 )
@@ -12099,9 +8191,9 @@ tree = {
 "data": {
 "fn": "task_canSupport",
 "offset": Vector2( 1400, 720 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 1 ]
+"params": [  ],
+"size": Vector2( 321, 83 ),
+"values": [  ]
 },
 "name": "priority_condition4",
 "type": 5
@@ -12198,9 +8290,9 @@ tree = {
 "data": {
 "fn": "task_canMakeRun",
 "offset": Vector2( 1400, 860 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 2 ]
+"params": [  ],
+"size": Vector2( 330, 83 ),
+"values": [  ]
 },
 "name": "priority_condition5",
 "type": 5
@@ -12257,9 +8349,9 @@ tree = {
 "data": {
 "fn": "task_HoldPosition",
 "offset": Vector2( 1400, 1000 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 3 ]
+"params": [  ],
+"size": Vector2( 327, 83 ),
+"values": [  ]
 },
 "name": "priority_condition6",
 "type": 5
@@ -12269,7 +8361,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 1840, 1020 ),
 "params": [  ],
-"size": Vector2( 356, 85 ),
+"size": Vector2( 356, 84.9999 ),
 "values": [  ]
 },
 "name": "task15",
@@ -12278,6 +8370,210 @@ tree = {
 "root": {
 "child": [ {
 "child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_supportPlayer",
+"offset": Vector2( 2000, 460 ),
+"params": [  ],
+"size": Vector2( 350, 85 ),
+"values": [  ]
+},
+"name": "task8",
+"type": 1
+}, {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_isPressed",
+"offset": Vector2( 2380, 540 ),
+"params": [  ],
+"size": Vector2( 350, 85 ),
+"values": [  ]
+},
+"name": "task10",
+"type": 1
+}, {
+"child": [ {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_getFreeLocation",
+"offset": Vector2( 2960, 640 ),
+"params": [  ],
+"size": Vector2( 350, 85 ),
+"values": [  ]
+},
+"name": "task11",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_move",
+"offset": Vector2( 2960, 760 ),
+"params": [  ],
+"size": Vector2( 350, 84.9999 ),
+"values": [  ]
+},
+"name": "task12",
+"type": 1
+} ],
+"data": {
+"count": 2,
+"offset": Vector2( 2680, 680 ),
+"size": Vector2( 146, 109 )
+},
+"name": "sequence5",
+"type": 2
+} ],
+"data": {
+"count": 0.0,
+"offset": Vector2( 2420, 680 ),
+"size": Vector2( 196, 55 )
+},
+"name": "repeat",
+"type": 8
+} ],
+"data": {
+"offset": Vector2( 2240, 680 ),
+"size": Vector2( 126, 55 )
+},
+"name": "inverter",
+"type": 14
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( 2000, 600 ),
+"size": Vector2( 146, 136 )
+},
+"name": "sequence6",
+"type": 2
+} ],
+"data": {
+"count": 2,
+"offset": Vector2( 1800, 580 ),
+"size": Vector2( 128, 109 )
+},
+"name": "paralel4",
+"type": 6
+} ],
+"data": {
+"fn": "task_canSupport",
+"offset": Vector2( 1400, 720 ),
+"params": [  ],
+"size": Vector2( 321, 83 ),
+"values": [  ]
+},
+"name": "priority_condition4",
+"type": 5
+}, {
+"child": [ {
+"child": [ {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_getFreeLocation",
+"offset": Vector2( 2500, 860 ),
+"params": [  ],
+"size": Vector2( 350, 85 ),
+"values": [  ]
+},
+"name": "task13",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_move",
+"offset": Vector2( 2500, 980 ),
+"params": [  ],
+"size": Vector2( 350, 84.9999 ),
+"values": [  ]
+},
+"name": "task14",
+"type": 1
+} ],
+"data": {
+"count": 2,
+"offset": Vector2( 2280, 860 ),
+"size": Vector2( 146, 109 )
+},
+"name": "sequence7",
+"type": 2
+} ],
+"data": {
+"count": 0.0,
+"offset": Vector2( 2020, 860 ),
+"size": Vector2( 196, 55 )
+},
+"name": "repeat2",
+"type": 8
+} ],
+"data": {
+"offset": Vector2( 1820, 860 ),
+"size": Vector2( 134, 55 )
+},
+"name": "inverter4",
+"type": 14
+} ],
+"data": {
+"fn": "task_canMakeRun",
+"offset": Vector2( 1400, 860 ),
+"params": [  ],
+"size": Vector2( 330, 83 ),
+"values": [  ]
+},
+"name": "priority_condition5",
+"type": 5
+}, {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_maintainPosition",
+"offset": Vector2( 1840, 1020 ),
+"params": [  ],
+"size": Vector2( 356, 84.9999 ),
+"values": [  ]
+},
+"name": "task15",
+"type": 1
+} ],
+"data": {
+"fn": "task_HoldPosition",
+"offset": Vector2( 1400, 1000 ),
+"params": [  ],
+"size": Vector2( 327, 83 ),
+"values": [  ]
+},
+"name": "priority_condition6",
+"type": 5
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( 1140, 760 ),
+"size": Vector2( 189, 136 )
+},
+"name": "priority_selector2",
+"type": 4
+}
+},
+"label": "",
+"offset": Vector2( 1140, 760 ),
+"size": Vector2( 236, 89 )
+},
+"name": "minim_node2",
+"type": 99
+} ],
+"data": {
+"count": 2,
+"offset": Vector2( 900, 600 ),
+"size": Vector2( 128, 109 )
+},
+"name": "paralel5",
+"type": 6
+}, {
+"child": [ {
 "child": [  ],
 "data": {
 "fn": "task_withBall",
@@ -12296,6 +8592,302 @@ tree = {
 "name": "inverter3",
 "type": 14
 }, {
+"child": [  ],
+"data": {
+"fn": "task_withBall",
+"offset": Vector2( 1280, 580 ),
+"params": [  ],
+"size": Vector2( 350, 85.0001 ),
+"values": [  ]
+},
+"name": "task9",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"data": {
+"connection": [ {
+"from": "priority_selector2",
+"from_port": 0,
+"to": "priority_condition4",
+"to_port": 0
+}, {
+"from": "priority_selector2",
+"from_port": 1,
+"to": "priority_condition5",
+"to_port": 0
+}, {
+"from": "priority_selector2",
+"from_port": 2,
+"to": "priority_condition6",
+"to_port": 0
+}, {
+"from": "priority_condition4",
+"from_port": 0,
+"to": "paralel4",
+"to_port": 0
+}, {
+"from": "paralel4",
+"from_port": 0,
+"to": "task8",
+"to_port": 0
+}, {
+"from": "paralel4",
+"from_port": 1,
+"to": "sequence6",
+"to_port": 0
+}, {
+"from": "sequence6",
+"from_port": 0,
+"to": "task10",
+"to_port": 0
+}, {
+"from": "sequence6",
+"from_port": 1,
+"to": "inverter",
+"to_port": 0
+}, {
+"from": "inverter",
+"from_port": 0,
+"to": "repeat",
+"to_port": 0
+}, {
+"from": "repeat",
+"from_port": 0,
+"to": "sequence5",
+"to_port": 0
+}, {
+"from": "sequence5",
+"from_port": 0,
+"to": "task11",
+"to_port": 0
+}, {
+"from": "sequence5",
+"from_port": 1,
+"to": "task12",
+"to_port": 0
+}, {
+"from": "priority_condition5",
+"from_port": 0,
+"to": "inverter4",
+"to_port": 0
+}, {
+"from": "inverter4",
+"from_port": 0,
+"to": "repeat2",
+"to_port": 0
+}, {
+"from": "repeat2",
+"from_port": 0,
+"to": "sequence7",
+"to_port": 0
+}, {
+"from": "sequence7",
+"from_port": 0,
+"to": "task13",
+"to_port": 0
+}, {
+"from": "sequence7",
+"from_port": 1,
+"to": "task14",
+"to_port": 0
+}, {
+"from": "priority_condition6",
+"from_port": 0,
+"to": "task15",
+"to_port": 0
+} ],
+"nodes": [ {
+"child": [  ],
+"data": {
+"count": 3,
+"offset": Vector2( 1140, 760 ),
+"size": Vector2( 189, 136 )
+},
+"name": "priority_selector2",
+"type": 4
+}, {
+"child": [  ],
+"data": {
+"fn": "task_canSupport",
+"offset": Vector2( 1400, 720 ),
+"params": [  ],
+"size": Vector2( 321, 83 ),
+"values": [  ]
+},
+"name": "priority_condition4",
+"type": 5
+}, {
+"child": [  ],
+"data": {
+"count": 2,
+"offset": Vector2( 1800, 580 ),
+"size": Vector2( 128, 109 )
+},
+"name": "paralel4",
+"type": 6
+}, {
+"child": [  ],
+"data": {
+"fn": "task_supportPlayer",
+"offset": Vector2( 2000, 460 ),
+"params": [  ],
+"size": Vector2( 350, 85 ),
+"values": [  ]
+},
+"name": "task8",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"count": 3,
+"offset": Vector2( 2000, 600 ),
+"size": Vector2( 146, 136 )
+},
+"name": "sequence6",
+"type": 2
+}, {
+"child": [  ],
+"data": {
+"fn": "task_isPressed",
+"offset": Vector2( 2380, 540 ),
+"params": [  ],
+"size": Vector2( 350, 85 ),
+"values": [  ]
+},
+"name": "task10",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"offset": Vector2( 2240, 680 ),
+"size": Vector2( 126, 55 )
+},
+"name": "inverter",
+"type": 14
+}, {
+"child": [  ],
+"data": {
+"count": 0.0,
+"offset": Vector2( 2420, 680 ),
+"size": Vector2( 196, 55 )
+},
+"name": "repeat",
+"type": 8
+}, {
+"child": [  ],
+"data": {
+"count": 2,
+"offset": Vector2( 2680, 680 ),
+"size": Vector2( 146, 109 )
+},
+"name": "sequence5",
+"type": 2
+}, {
+"child": [  ],
+"data": {
+"fn": "task_getFreeLocation",
+"offset": Vector2( 2960, 640 ),
+"params": [  ],
+"size": Vector2( 350, 85 ),
+"values": [  ]
+},
+"name": "task11",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_move",
+"offset": Vector2( 2960, 760 ),
+"params": [  ],
+"size": Vector2( 350, 84.9999 ),
+"values": [  ]
+},
+"name": "task12",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_canMakeRun",
+"offset": Vector2( 1400, 860 ),
+"params": [  ],
+"size": Vector2( 330, 83 ),
+"values": [  ]
+},
+"name": "priority_condition5",
+"type": 5
+}, {
+"child": [  ],
+"data": {
+"offset": Vector2( 1820, 860 ),
+"size": Vector2( 134, 55 )
+},
+"name": "inverter4",
+"type": 14
+}, {
+"child": [  ],
+"data": {
+"count": 0.0,
+"offset": Vector2( 2020, 860 ),
+"size": Vector2( 196, 55 )
+},
+"name": "repeat2",
+"type": 8
+}, {
+"child": [  ],
+"data": {
+"count": 2,
+"offset": Vector2( 2280, 860 ),
+"size": Vector2( 146, 109 )
+},
+"name": "sequence7",
+"type": 2
+}, {
+"child": [  ],
+"data": {
+"fn": "task_getFreeLocation",
+"offset": Vector2( 2500, 860 ),
+"params": [  ],
+"size": Vector2( 350, 85 ),
+"values": [  ]
+},
+"name": "task13",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_move",
+"offset": Vector2( 2500, 980 ),
+"params": [  ],
+"size": Vector2( 350, 84.9999 ),
+"values": [  ]
+},
+"name": "task14",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_HoldPosition",
+"offset": Vector2( 1400, 1000 ),
+"params": [  ],
+"size": Vector2( 327, 83 ),
+"values": [  ]
+},
+"name": "priority_condition6",
+"type": 5
+}, {
+"child": [  ],
+"data": {
+"fn": "task_maintainPosition",
+"offset": Vector2( 1840, 1020 ),
+"params": [  ],
+"size": Vector2( 356, 84.9999 ),
+"values": [  ]
+},
+"name": "task15",
+"type": 1
+} ],
+"root": {
 "child": [ {
 "child": [ {
 "child": [ {
@@ -12389,9 +8981,9 @@ tree = {
 "data": {
 "fn": "task_canSupport",
 "offset": Vector2( 1400, 720 ),
-"params": [ [ 1, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 1 ]
+"params": [  ],
+"size": Vector2( 321, 83 ),
+"values": [  ]
 },
 "name": "priority_condition4",
 "type": 5
@@ -12448,9 +9040,9 @@ tree = {
 "data": {
 "fn": "task_canMakeRun",
 "offset": Vector2( 1400, 860 ),
-"params": [ [ 2, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 2 ]
+"params": [  ],
+"size": Vector2( 330, 83 ),
+"values": [  ]
 },
 "name": "priority_condition5",
 "type": 5
@@ -12461,7 +9053,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 1840, 1020 ),
 "params": [  ],
-"size": Vector2( 356, 85 ),
+"size": Vector2( 356, 84.9999 ),
 "values": [  ]
 },
 "name": "task15",
@@ -12470,9 +9062,9 @@ tree = {
 "data": {
 "fn": "task_HoldPosition",
 "offset": Vector2( 1400, 1000 ),
-"params": [ [ 3, 0 ] ],
-"size": Vector2( 350, 109 ),
-"values": [ 3 ]
+"params": [  ],
+"size": Vector2( 327, 83 ),
+"values": [  ]
 },
 "name": "priority_condition6",
 "type": 5
@@ -12484,6 +9076,1719 @@ tree = {
 },
 "name": "priority_selector2",
 "type": 4
+}
+},
+"label": "",
+"offset": Vector2( 1140, 760 ),
+"size": Vector2( 236, 89 )
+},
+"name": "minim_node2",
+"type": 99
+}, {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_withBall",
+"offset": Vector2( 1160, -20 ),
+"params": [  ],
+"size": Vector2( 297, 84.9999 ),
+"values": [  ]
+},
+"name": "task8",
+"type": 1
+}, {
+"child": [ {
+"child": [ {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_forwardPass",
+"offset": Vector2( 2420, -560 ),
+"params": [  ],
+"size": Vector2( 326, 85 ),
+"values": [  ]
+},
+"name": "task16",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2420, -440 ),
+"params": [  ],
+"size": Vector2( 341, 85 ),
+"values": [  ]
+},
+"name": "task17",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_passBall",
+"offset": Vector2( 2420, -320 ),
+"params": [  ],
+"size": Vector2( 299, 85 ),
+"values": [  ]
+},
+"name": "task18",
+"type": 1
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( 2160, -420 ),
+"size": Vector2( 146, 136 )
+},
+"name": "sequence8",
+"type": 2
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_forwardPass",
+"offset": Vector2( 2580, -200 ),
+"params": [  ],
+"size": Vector2( 326, 85 ),
+"values": [  ]
+},
+"name": "task19",
+"type": 1
+} ],
+"data": {
+"offset": Vector2( 2380, -180 ),
+"size": Vector2( 134, 55 )
+},
+"name": "inverter5",
+"type": 14
+}, {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2580, -100 ),
+"params": [  ],
+"size": Vector2( 341, 85 ),
+"values": [  ]
+},
+"name": "task20",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_passBall",
+"offset": Vector2( 2460, -20 ),
+"params": [  ],
+"size": Vector2( 299, 84.9999 ),
+"values": [  ]
+},
+"name": "task21",
+"type": 1
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( 2160, -180 ),
+"size": Vector2( 146, 136 )
+},
+"name": "sequence9",
+"type": 2
+} ],
+"data": {
+"count": 2,
+"offset": Vector2( 1920, -360 ),
+"size": Vector2( 134, 109 )
+},
+"name": "selector4",
+"type": 3
+} ],
+"data": {
+"fn": "task_condPassBall",
+"offset": Vector2( 1480, 80 ),
+"params": [ [ 1, 0 ] ],
+"size": Vector2( 331, 109 ),
+"values": [ 1 ]
+},
+"name": "priority_condition",
+"type": 5
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2280, 120 ),
+"params": [  ],
+"size": Vector2( 341, 85.0001 ),
+"values": [  ]
+},
+"name": "task10",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_crossBall",
+"offset": Vector2( 2280, 240 ),
+"params": [  ],
+"size": Vector2( 303, 84.9999 ),
+"values": [  ]
+},
+"name": "task11",
+"type": 1
+} ],
+"data": {
+"count": 2,
+"offset": Vector2( 1980, 140 ),
+"size": Vector2( 146, 109 )
+},
+"name": "sequence3",
+"type": 2
+} ],
+"data": {
+"fn": "task_condCrossBall",
+"offset": Vector2( 1480, 200 ),
+"params": [ [ 2, 0 ] ],
+"size": Vector2( 338, 109 ),
+"values": [ 2 ]
+},
+"name": "priority_condition2",
+"type": 5
+}, {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_progressBall",
+"offset": Vector2( 2038.37, 371.301 ),
+"params": [  ],
+"size": Vector2( 328, 85 ),
+"values": [  ]
+},
+"name": "task12",
+"type": 1
+} ],
+"data": {
+"fn": "task_condProgressBall",
+"offset": Vector2( 1480, 320 ),
+"params": [ [ 3, 0 ] ],
+"size": Vector2( 360, 109 ),
+"values": [ 3 ]
+},
+"name": "priority_condition3",
+"type": 5
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( 1160, 120 ),
+"size": Vector2( 181, 136 )
+},
+"name": "priority_selector",
+"type": 4
+} ],
+"data": {
+"count": 2,
+"offset": Vector2( 1000, 40 ),
+"size": Vector2( 128, 109 )
+},
+"name": "paralel4",
+"type": 6
+}, {
+"child": [  ],
+"data": {
+"fn": "task_withBall",
+"offset": Vector2( 1160, -20 ),
+"params": [  ],
+"size": Vector2( 297, 84.9999 ),
+"values": [  ]
+},
+"name": "task8",
+"type": 1
+}, {
+"child": [ {
+"child": [ {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_forwardPass",
+"offset": Vector2( 2420, -560 ),
+"params": [  ],
+"size": Vector2( 326, 85 ),
+"values": [  ]
+},
+"name": "task16",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2420, -440 ),
+"params": [  ],
+"size": Vector2( 341, 85 ),
+"values": [  ]
+},
+"name": "task17",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_passBall",
+"offset": Vector2( 2420, -320 ),
+"params": [  ],
+"size": Vector2( 299, 85 ),
+"values": [  ]
+},
+"name": "task18",
+"type": 1
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( 2160, -420 ),
+"size": Vector2( 146, 136 )
+},
+"name": "sequence8",
+"type": 2
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_forwardPass",
+"offset": Vector2( 2580, -200 ),
+"params": [  ],
+"size": Vector2( 326, 85 ),
+"values": [  ]
+},
+"name": "task19",
+"type": 1
+} ],
+"data": {
+"offset": Vector2( 2380, -180 ),
+"size": Vector2( 134, 55 )
+},
+"name": "inverter5",
+"type": 14
+}, {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2580, -100 ),
+"params": [  ],
+"size": Vector2( 341, 85 ),
+"values": [  ]
+},
+"name": "task20",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_passBall",
+"offset": Vector2( 2460, -20 ),
+"params": [  ],
+"size": Vector2( 299, 84.9999 ),
+"values": [  ]
+},
+"name": "task21",
+"type": 1
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( 2160, -180 ),
+"size": Vector2( 146, 136 )
+},
+"name": "sequence9",
+"type": 2
+} ],
+"data": {
+"count": 2,
+"offset": Vector2( 1920, -360 ),
+"size": Vector2( 134, 109 )
+},
+"name": "selector4",
+"type": 3
+} ],
+"data": {
+"fn": "task_condPassBall",
+"offset": Vector2( 1480, 80 ),
+"params": [ [ 1, 0 ] ],
+"size": Vector2( 331, 109 ),
+"values": [ 1 ]
+},
+"name": "priority_condition",
+"type": 5
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2280, 120 ),
+"params": [  ],
+"size": Vector2( 341, 85.0001 ),
+"values": [  ]
+},
+"name": "task10",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_crossBall",
+"offset": Vector2( 2280, 240 ),
+"params": [  ],
+"size": Vector2( 303, 84.9999 ),
+"values": [  ]
+},
+"name": "task11",
+"type": 1
+} ],
+"data": {
+"count": 2,
+"offset": Vector2( 1980, 140 ),
+"size": Vector2( 146, 109 )
+},
+"name": "sequence3",
+"type": 2
+} ],
+"data": {
+"fn": "task_condCrossBall",
+"offset": Vector2( 1480, 200 ),
+"params": [ [ 2, 0 ] ],
+"size": Vector2( 338, 109 ),
+"values": [ 2 ]
+},
+"name": "priority_condition2",
+"type": 5
+}, {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_progressBall",
+"offset": Vector2( 2038.37, 371.301 ),
+"params": [  ],
+"size": Vector2( 328, 85 ),
+"values": [  ]
+},
+"name": "task12",
+"type": 1
+} ],
+"data": {
+"fn": "task_condProgressBall",
+"offset": Vector2( 1480, 320 ),
+"params": [ [ 3, 0 ] ],
+"size": Vector2( 360, 109 ),
+"values": [ 3 ]
+},
+"name": "priority_condition3",
+"type": 5
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( 1160, 120 ),
+"size": Vector2( 181, 136 )
+},
+"name": "priority_selector",
+"type": 4
+}, {
+"child": [ {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_forwardPass",
+"offset": Vector2( 2420, -560 ),
+"params": [  ],
+"size": Vector2( 326, 85 ),
+"values": [  ]
+},
+"name": "task16",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2420, -440 ),
+"params": [  ],
+"size": Vector2( 341, 85 ),
+"values": [  ]
+},
+"name": "task17",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_passBall",
+"offset": Vector2( 2420, -320 ),
+"params": [  ],
+"size": Vector2( 299, 85 ),
+"values": [  ]
+},
+"name": "task18",
+"type": 1
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( 2160, -420 ),
+"size": Vector2( 146, 136 )
+},
+"name": "sequence8",
+"type": 2
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_forwardPass",
+"offset": Vector2( 2580, -200 ),
+"params": [  ],
+"size": Vector2( 326, 85 ),
+"values": [  ]
+},
+"name": "task19",
+"type": 1
+} ],
+"data": {
+"offset": Vector2( 2380, -180 ),
+"size": Vector2( 134, 55 )
+},
+"name": "inverter5",
+"type": 14
+}, {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2580, -100 ),
+"params": [  ],
+"size": Vector2( 341, 85 ),
+"values": [  ]
+},
+"name": "task20",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_passBall",
+"offset": Vector2( 2460, -20 ),
+"params": [  ],
+"size": Vector2( 299, 84.9999 ),
+"values": [  ]
+},
+"name": "task21",
+"type": 1
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( 2160, -180 ),
+"size": Vector2( 146, 136 )
+},
+"name": "sequence9",
+"type": 2
+} ],
+"data": {
+"count": 2,
+"offset": Vector2( 1920, -360 ),
+"size": Vector2( 134, 109 )
+},
+"name": "selector4",
+"type": 3
+} ],
+"data": {
+"fn": "task_condPassBall",
+"offset": Vector2( 1480, 80 ),
+"params": [ [ 1, 0 ] ],
+"size": Vector2( 331, 109 ),
+"values": [ 1 ]
+},
+"name": "priority_condition",
+"type": 5
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_forwardPass",
+"offset": Vector2( 2420, -560 ),
+"params": [  ],
+"size": Vector2( 326, 85 ),
+"values": [  ]
+},
+"name": "task16",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2420, -440 ),
+"params": [  ],
+"size": Vector2( 341, 85 ),
+"values": [  ]
+},
+"name": "task17",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_passBall",
+"offset": Vector2( 2420, -320 ),
+"params": [  ],
+"size": Vector2( 299, 85 ),
+"values": [  ]
+},
+"name": "task18",
+"type": 1
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( 2160, -420 ),
+"size": Vector2( 146, 136 )
+},
+"name": "sequence8",
+"type": 2
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_forwardPass",
+"offset": Vector2( 2580, -200 ),
+"params": [  ],
+"size": Vector2( 326, 85 ),
+"values": [  ]
+},
+"name": "task19",
+"type": 1
+} ],
+"data": {
+"offset": Vector2( 2380, -180 ),
+"size": Vector2( 134, 55 )
+},
+"name": "inverter5",
+"type": 14
+}, {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2580, -100 ),
+"params": [  ],
+"size": Vector2( 341, 85 ),
+"values": [  ]
+},
+"name": "task20",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_passBall",
+"offset": Vector2( 2460, -20 ),
+"params": [  ],
+"size": Vector2( 299, 84.9999 ),
+"values": [  ]
+},
+"name": "task21",
+"type": 1
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( 2160, -180 ),
+"size": Vector2( 146, 136 )
+},
+"name": "sequence9",
+"type": 2
+} ],
+"data": {
+"count": 2,
+"offset": Vector2( 1920, -360 ),
+"size": Vector2( 134, 109 )
+},
+"name": "selector4",
+"type": 3
+}, {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_forwardPass",
+"offset": Vector2( 2420, -560 ),
+"params": [  ],
+"size": Vector2( 326, 85 ),
+"values": [  ]
+},
+"name": "task16",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2420, -440 ),
+"params": [  ],
+"size": Vector2( 341, 85 ),
+"values": [  ]
+},
+"name": "task17",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_passBall",
+"offset": Vector2( 2420, -320 ),
+"params": [  ],
+"size": Vector2( 299, 85 ),
+"values": [  ]
+},
+"name": "task18",
+"type": 1
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( 2160, -420 ),
+"size": Vector2( 146, 136 )
+},
+"name": "sequence8",
+"type": 2
+}, {
+"child": [  ],
+"data": {
+"fn": "task_forwardPass",
+"offset": Vector2( 2420, -560 ),
+"params": [  ],
+"size": Vector2( 326, 85 ),
+"values": [  ]
+},
+"name": "task16",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2420, -440 ),
+"params": [  ],
+"size": Vector2( 341, 85 ),
+"values": [  ]
+},
+"name": "task17",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_passBall",
+"offset": Vector2( 2420, -320 ),
+"params": [  ],
+"size": Vector2( 299, 85 ),
+"values": [  ]
+},
+"name": "task18",
+"type": 1
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_forwardPass",
+"offset": Vector2( 2580, -200 ),
+"params": [  ],
+"size": Vector2( 326, 85 ),
+"values": [  ]
+},
+"name": "task19",
+"type": 1
+} ],
+"data": {
+"offset": Vector2( 2380, -180 ),
+"size": Vector2( 134, 55 )
+},
+"name": "inverter5",
+"type": 14
+}, {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2580, -100 ),
+"params": [  ],
+"size": Vector2( 341, 85 ),
+"values": [  ]
+},
+"name": "task20",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_passBall",
+"offset": Vector2( 2460, -20 ),
+"params": [  ],
+"size": Vector2( 299, 84.9999 ),
+"values": [  ]
+},
+"name": "task21",
+"type": 1
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( 2160, -180 ),
+"size": Vector2( 146, 136 )
+},
+"name": "sequence9",
+"type": 2
+}, {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_forwardPass",
+"offset": Vector2( 2580, -200 ),
+"params": [  ],
+"size": Vector2( 326, 85 ),
+"values": [  ]
+},
+"name": "task19",
+"type": 1
+} ],
+"data": {
+"offset": Vector2( 2380, -180 ),
+"size": Vector2( 134, 55 )
+},
+"name": "inverter5",
+"type": 14
+}, {
+"child": [  ],
+"data": {
+"fn": "task_forwardPass",
+"offset": Vector2( 2580, -200 ),
+"params": [  ],
+"size": Vector2( 326, 85 ),
+"values": [  ]
+},
+"name": "task19",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2580, -100 ),
+"params": [  ],
+"size": Vector2( 341, 85 ),
+"values": [  ]
+},
+"name": "task20",
+"type": 1
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2280, 120 ),
+"params": [  ],
+"size": Vector2( 341, 85.0001 ),
+"values": [  ]
+},
+"name": "task10",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_crossBall",
+"offset": Vector2( 2280, 240 ),
+"params": [  ],
+"size": Vector2( 303, 84.9999 ),
+"values": [  ]
+},
+"name": "task11",
+"type": 1
+} ],
+"data": {
+"count": 2,
+"offset": Vector2( 1980, 140 ),
+"size": Vector2( 146, 109 )
+},
+"name": "sequence3",
+"type": 2
+} ],
+"data": {
+"fn": "task_condCrossBall",
+"offset": Vector2( 1480, 200 ),
+"params": [ [ 2, 0 ] ],
+"size": Vector2( 338, 109 ),
+"values": [ 2 ]
+},
+"name": "priority_condition2",
+"type": 5
+}, {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2280, 120 ),
+"params": [  ],
+"size": Vector2( 341, 85.0001 ),
+"values": [  ]
+},
+"name": "task10",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_crossBall",
+"offset": Vector2( 2280, 240 ),
+"params": [  ],
+"size": Vector2( 303, 84.9999 ),
+"values": [  ]
+},
+"name": "task11",
+"type": 1
+} ],
+"data": {
+"count": 2,
+"offset": Vector2( 1980, 140 ),
+"size": Vector2( 146, 109 )
+},
+"name": "sequence3",
+"type": 2
+}, {
+"child": [  ],
+"data": {
+"fn": "task_crossBall",
+"offset": Vector2( 2280, 240 ),
+"params": [  ],
+"size": Vector2( 303, 84.9999 ),
+"values": [  ]
+},
+"name": "task11",
+"type": 1
+}, {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_progressBall",
+"offset": Vector2( 2038.37, 371.301 ),
+"params": [  ],
+"size": Vector2( 328, 85 ),
+"values": [  ]
+},
+"name": "task12",
+"type": 1
+} ],
+"data": {
+"fn": "task_condProgressBall",
+"offset": Vector2( 1480, 320 ),
+"params": [ [ 3, 0 ] ],
+"size": Vector2( 360, 109 ),
+"values": [ 3 ]
+},
+"name": "priority_condition3",
+"type": 5
+}, {
+"child": [  ],
+"data": {
+"fn": "task_passBall",
+"offset": Vector2( 2460, -20 ),
+"params": [  ],
+"size": Vector2( 299, 84.9999 ),
+"values": [  ]
+},
+"name": "task21",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2280, 120 ),
+"params": [  ],
+"size": Vector2( 341, 85.0001 ),
+"values": [  ]
+},
+"name": "task10",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_progressBall",
+"offset": Vector2( 2038.37, 371.301 ),
+"params": [  ],
+"size": Vector2( 328, 85 ),
+"values": [  ]
+},
+"name": "task12",
+"type": 1
+} ],
+"root": {
+"child": [ {
+"child": [ {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_matchStart",
+"offset": Vector2( 380, -360 ),
+"params": [  ],
+"size": Vector2( 317, 85 ),
+"values": [  ]
+},
+"name": "task2",
+"type": 1
+} ],
+"data": {
+"offset": Vector2( 200, -260 ),
+"size": Vector2( 134.001, 55 )
+},
+"name": "inverter2",
+"type": 14
+}, {
+"child": [  ],
+"data": {
+"fn": "task_kickOffPlayer",
+"offset": Vector2( 240, -180 ),
+"params": [  ],
+"size": Vector2( 380, 85 ),
+"values": [  ]
+},
+"name": "task6",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_kickOff",
+"offset": Vector2( 240, -60 ),
+"params": [  ],
+"size": Vector2( 380, 84.9998 ),
+"values": [  ]
+},
+"name": "task7",
+"type": 1
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( -20, -200 ),
+"size": Vector2( 138, 136 )
+},
+"name": "sequence",
+"type": 2
+}, {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_matchStart",
+"offset": Vector2( 220, 100 ),
+"params": [  ],
+"size": Vector2( 317.001, 84.9996 ),
+"values": [  ]
+},
+"name": "task",
+"type": 1
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_teamPossession",
+"offset": Vector2( 580, 240 ),
+"params": [  ],
+"size": Vector2( 350, 85.0002 ),
+"values": [  ]
+},
+"name": "task3",
+"type": 1
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_withBall",
+"offset": Vector2( 1160, -20 ),
+"params": [  ],
+"size": Vector2( 297, 84.9999 ),
+"values": [  ]
+},
+"name": "task8",
+"type": 1
+}, {
+"child": [ {
+"child": [ {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_forwardPass",
+"offset": Vector2( 2420, -560 ),
+"params": [  ],
+"size": Vector2( 326, 85 ),
+"values": [  ]
+},
+"name": "task16",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2420, -440 ),
+"params": [  ],
+"size": Vector2( 341, 85 ),
+"values": [  ]
+},
+"name": "task17",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_passBall",
+"offset": Vector2( 2420, -320 ),
+"params": [  ],
+"size": Vector2( 299, 85 ),
+"values": [  ]
+},
+"name": "task18",
+"type": 1
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( 2160, -420 ),
+"size": Vector2( 146, 136 )
+},
+"name": "sequence8",
+"type": 2
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_forwardPass",
+"offset": Vector2( 2580, -200 ),
+"params": [  ],
+"size": Vector2( 326, 85 ),
+"values": [  ]
+},
+"name": "task19",
+"type": 1
+} ],
+"data": {
+"offset": Vector2( 2380, -180 ),
+"size": Vector2( 134, 55 )
+},
+"name": "inverter5",
+"type": 14
+}, {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2580, -100 ),
+"params": [  ],
+"size": Vector2( 341, 85 ),
+"values": [  ]
+},
+"name": "task20",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_passBall",
+"offset": Vector2( 2460, -20 ),
+"params": [  ],
+"size": Vector2( 299, 84.9999 ),
+"values": [  ]
+},
+"name": "task21",
+"type": 1
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( 2160, -180 ),
+"size": Vector2( 146, 136 )
+},
+"name": "sequence9",
+"type": 2
+} ],
+"data": {
+"count": 2,
+"offset": Vector2( 1920, -360 ),
+"size": Vector2( 134, 109 )
+},
+"name": "selector4",
+"type": 3
+} ],
+"data": {
+"fn": "task_condPassBall",
+"offset": Vector2( 1480, 80 ),
+"params": [ [ 1, 0 ] ],
+"size": Vector2( 331, 109 ),
+"values": [ 1 ]
+},
+"name": "priority_condition",
+"type": 5
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_hasPassTarget",
+"offset": Vector2( 2280, 120 ),
+"params": [  ],
+"size": Vector2( 341, 85.0001 ),
+"values": [  ]
+},
+"name": "task10",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_crossBall",
+"offset": Vector2( 2280, 240 ),
+"params": [  ],
+"size": Vector2( 303, 84.9999 ),
+"values": [  ]
+},
+"name": "task11",
+"type": 1
+} ],
+"data": {
+"count": 2,
+"offset": Vector2( 1980, 140 ),
+"size": Vector2( 146, 109 )
+},
+"name": "sequence3",
+"type": 2
+} ],
+"data": {
+"fn": "task_condCrossBall",
+"offset": Vector2( 1480, 200 ),
+"params": [ [ 2, 0 ] ],
+"size": Vector2( 338, 109 ),
+"values": [ 2 ]
+},
+"name": "priority_condition2",
+"type": 5
+}, {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_progressBall",
+"offset": Vector2( 2038.37, 371.301 ),
+"params": [  ],
+"size": Vector2( 328, 85 ),
+"values": [  ]
+},
+"name": "task12",
+"type": 1
+} ],
+"data": {
+"fn": "task_condProgressBall",
+"offset": Vector2( 1480, 320 ),
+"params": [ [ 3, 0 ] ],
+"size": Vector2( 360, 109 ),
+"values": [ 3 ]
+},
+"name": "priority_condition3",
+"type": 5
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( 1160, 120 ),
+"size": Vector2( 181, 136 )
+},
+"name": "priority_selector",
+"type": 4
+} ],
+"data": {
+"count": 2,
+"offset": Vector2( 1000, 40 ),
+"size": Vector2( 128, 109 )
+},
+"name": "paralel4",
+"type": 6
+}, {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_withBall",
+"offset": Vector2( 1280, 580 ),
+"params": [  ],
+"size": Vector2( 350, 85.0001 ),
+"values": [  ]
+},
+"name": "task9",
+"type": 1
+} ],
+"data": {
+"offset": Vector2( 1120, 600 ),
+"size": Vector2( 134, 55 )
+},
+"name": "inverter3",
+"type": 14
+}, {
+"child": [  ],
+"data": {
+"data": {
+"connection": [ {
+"from": "priority_selector2",
+"from_port": 0,
+"to": "priority_condition4",
+"to_port": 0
+}, {
+"from": "priority_selector2",
+"from_port": 1,
+"to": "priority_condition5",
+"to_port": 0
+}, {
+"from": "priority_selector2",
+"from_port": 2,
+"to": "priority_condition6",
+"to_port": 0
+}, {
+"from": "priority_condition4",
+"from_port": 0,
+"to": "paralel4",
+"to_port": 0
+}, {
+"from": "paralel4",
+"from_port": 0,
+"to": "task8",
+"to_port": 0
+}, {
+"from": "paralel4",
+"from_port": 1,
+"to": "sequence6",
+"to_port": 0
+}, {
+"from": "sequence6",
+"from_port": 0,
+"to": "task10",
+"to_port": 0
+}, {
+"from": "sequence6",
+"from_port": 1,
+"to": "inverter",
+"to_port": 0
+}, {
+"from": "inverter",
+"from_port": 0,
+"to": "repeat",
+"to_port": 0
+}, {
+"from": "repeat",
+"from_port": 0,
+"to": "sequence5",
+"to_port": 0
+}, {
+"from": "sequence5",
+"from_port": 0,
+"to": "task11",
+"to_port": 0
+}, {
+"from": "sequence5",
+"from_port": 1,
+"to": "task12",
+"to_port": 0
+}, {
+"from": "priority_condition5",
+"from_port": 0,
+"to": "inverter4",
+"to_port": 0
+}, {
+"from": "inverter4",
+"from_port": 0,
+"to": "repeat2",
+"to_port": 0
+}, {
+"from": "repeat2",
+"from_port": 0,
+"to": "sequence7",
+"to_port": 0
+}, {
+"from": "sequence7",
+"from_port": 0,
+"to": "task13",
+"to_port": 0
+}, {
+"from": "sequence7",
+"from_port": 1,
+"to": "task14",
+"to_port": 0
+}, {
+"from": "priority_condition6",
+"from_port": 0,
+"to": "task15",
+"to_port": 0
+} ],
+"nodes": [ {
+"child": [  ],
+"data": {
+"count": 3,
+"offset": Vector2( 1140, 760 ),
+"size": Vector2( 189, 136 )
+},
+"name": "priority_selector2",
+"type": 4
+}, {
+"child": [  ],
+"data": {
+"fn": "task_canSupport",
+"offset": Vector2( 1400, 720 ),
+"params": [  ],
+"size": Vector2( 321, 83 ),
+"values": [  ]
+},
+"name": "priority_condition4",
+"type": 5
+}, {
+"child": [  ],
+"data": {
+"count": 2,
+"offset": Vector2( 1800, 580 ),
+"size": Vector2( 128, 109 )
+},
+"name": "paralel4",
+"type": 6
+}, {
+"child": [  ],
+"data": {
+"fn": "task_supportPlayer",
+"offset": Vector2( 2000, 460 ),
+"params": [  ],
+"size": Vector2( 350, 85 ),
+"values": [  ]
+},
+"name": "task8",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"count": 3,
+"offset": Vector2( 2000, 600 ),
+"size": Vector2( 146, 136 )
+},
+"name": "sequence6",
+"type": 2
+}, {
+"child": [  ],
+"data": {
+"fn": "task_isPressed",
+"offset": Vector2( 2380, 540 ),
+"params": [  ],
+"size": Vector2( 350, 85 ),
+"values": [  ]
+},
+"name": "task10",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"offset": Vector2( 2240, 680 ),
+"size": Vector2( 126, 55 )
+},
+"name": "inverter",
+"type": 14
+}, {
+"child": [  ],
+"data": {
+"count": 0.0,
+"offset": Vector2( 2420, 680 ),
+"size": Vector2( 196, 55 )
+},
+"name": "repeat",
+"type": 8
+}, {
+"child": [  ],
+"data": {
+"count": 2,
+"offset": Vector2( 2680, 680 ),
+"size": Vector2( 146, 109 )
+},
+"name": "sequence5",
+"type": 2
+}, {
+"child": [  ],
+"data": {
+"fn": "task_getFreeLocation",
+"offset": Vector2( 2960, 640 ),
+"params": [  ],
+"size": Vector2( 350, 85 ),
+"values": [  ]
+},
+"name": "task11",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_move",
+"offset": Vector2( 2960, 760 ),
+"params": [  ],
+"size": Vector2( 350, 84.9999 ),
+"values": [  ]
+},
+"name": "task12",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_canMakeRun",
+"offset": Vector2( 1400, 860 ),
+"params": [  ],
+"size": Vector2( 330, 83 ),
+"values": [  ]
+},
+"name": "priority_condition5",
+"type": 5
+}, {
+"child": [  ],
+"data": {
+"offset": Vector2( 1820, 860 ),
+"size": Vector2( 134, 55 )
+},
+"name": "inverter4",
+"type": 14
+}, {
+"child": [  ],
+"data": {
+"count": 0.0,
+"offset": Vector2( 2020, 860 ),
+"size": Vector2( 196, 55 )
+},
+"name": "repeat2",
+"type": 8
+}, {
+"child": [  ],
+"data": {
+"count": 2,
+"offset": Vector2( 2280, 860 ),
+"size": Vector2( 146, 109 )
+},
+"name": "sequence7",
+"type": 2
+}, {
+"child": [  ],
+"data": {
+"fn": "task_getFreeLocation",
+"offset": Vector2( 2500, 860 ),
+"params": [  ],
+"size": Vector2( 350, 85 ),
+"values": [  ]
+},
+"name": "task13",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_move",
+"offset": Vector2( 2500, 980 ),
+"params": [  ],
+"size": Vector2( 350, 84.9999 ),
+"values": [  ]
+},
+"name": "task14",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_HoldPosition",
+"offset": Vector2( 1400, 1000 ),
+"params": [  ],
+"size": Vector2( 327, 83 ),
+"values": [  ]
+},
+"name": "priority_condition6",
+"type": 5
+}, {
+"child": [  ],
+"data": {
+"fn": "task_maintainPosition",
+"offset": Vector2( 1840, 1020 ),
+"params": [  ],
+"size": Vector2( 356, 84.9999 ),
+"values": [  ]
+},
+"name": "task15",
+"type": 1
+} ],
+"root": {
+"child": [ {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_supportPlayer",
+"offset": Vector2( 2000, 460 ),
+"params": [  ],
+"size": Vector2( 350, 85 ),
+"values": [  ]
+},
+"name": "task8",
+"type": 1
+}, {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_isPressed",
+"offset": Vector2( 2380, 540 ),
+"params": [  ],
+"size": Vector2( 350, 85 ),
+"values": [  ]
+},
+"name": "task10",
+"type": 1
+}, {
+"child": [ {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_getFreeLocation",
+"offset": Vector2( 2960, 640 ),
+"params": [  ],
+"size": Vector2( 350, 85 ),
+"values": [  ]
+},
+"name": "task11",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_move",
+"offset": Vector2( 2960, 760 ),
+"params": [  ],
+"size": Vector2( 350, 84.9999 ),
+"values": [  ]
+},
+"name": "task12",
+"type": 1
+} ],
+"data": {
+"count": 2,
+"offset": Vector2( 2680, 680 ),
+"size": Vector2( 146, 109 )
+},
+"name": "sequence5",
+"type": 2
+} ],
+"data": {
+"count": 0.0,
+"offset": Vector2( 2420, 680 ),
+"size": Vector2( 196, 55 )
+},
+"name": "repeat",
+"type": 8
+} ],
+"data": {
+"offset": Vector2( 2240, 680 ),
+"size": Vector2( 126, 55 )
+},
+"name": "inverter",
+"type": 14
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( 2000, 600 ),
+"size": Vector2( 146, 136 )
+},
+"name": "sequence6",
+"type": 2
+} ],
+"data": {
+"count": 2,
+"offset": Vector2( 1800, 580 ),
+"size": Vector2( 128, 109 )
+},
+"name": "paralel4",
+"type": 6
+} ],
+"data": {
+"fn": "task_canSupport",
+"offset": Vector2( 1400, 720 ),
+"params": [  ],
+"size": Vector2( 321, 83 ),
+"values": [  ]
+},
+"name": "priority_condition4",
+"type": 5
+}, {
+"child": [ {
+"child": [ {
+"child": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_getFreeLocation",
+"offset": Vector2( 2500, 860 ),
+"params": [  ],
+"size": Vector2( 350, 85 ),
+"values": [  ]
+},
+"name": "task13",
+"type": 1
+}, {
+"child": [  ],
+"data": {
+"fn": "task_move",
+"offset": Vector2( 2500, 980 ),
+"params": [  ],
+"size": Vector2( 350, 84.9999 ),
+"values": [  ]
+},
+"name": "task14",
+"type": 1
+} ],
+"data": {
+"count": 2,
+"offset": Vector2( 2280, 860 ),
+"size": Vector2( 146, 109 )
+},
+"name": "sequence7",
+"type": 2
+} ],
+"data": {
+"count": 0.0,
+"offset": Vector2( 2020, 860 ),
+"size": Vector2( 196, 55 )
+},
+"name": "repeat2",
+"type": 8
+} ],
+"data": {
+"offset": Vector2( 1820, 860 ),
+"size": Vector2( 134, 55 )
+},
+"name": "inverter4",
+"type": 14
+} ],
+"data": {
+"fn": "task_canMakeRun",
+"offset": Vector2( 1400, 860 ),
+"params": [  ],
+"size": Vector2( 330, 83 ),
+"values": [  ]
+},
+"name": "priority_condition5",
+"type": 5
+}, {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_maintainPosition",
+"offset": Vector2( 1840, 1020 ),
+"params": [  ],
+"size": Vector2( 356, 84.9999 ),
+"values": [  ]
+},
+"name": "task15",
+"type": 1
+} ],
+"data": {
+"fn": "task_HoldPosition",
+"offset": Vector2( 1400, 1000 ),
+"params": [  ],
+"size": Vector2( 327, 83 ),
+"values": [  ]
+},
+"name": "priority_condition6",
+"type": 5
+} ],
+"data": {
+"count": 3,
+"offset": Vector2( 1140, 760 ),
+"size": Vector2( 189, 136 )
+},
+"name": "priority_selector2",
+"type": 4
+}
+},
+"label": "",
+"offset": Vector2( 1140, 760 ),
+"size": Vector2( 236, 89 )
+},
+"name": "minim_node2",
+"type": 99
 } ],
 "data": {
 "count": 2,
@@ -12492,14 +10797,6 @@ tree = {
 },
 "name": "paralel5",
 "type": 6
-}
-},
-"label": "",
-"offset": Vector2( 900, 600 ),
-"size": Vector2( 236, 89.0001 )
-},
-"name": "minim_node2",
-"type": 99
 } ],
 "data": {
 "count": 2,
@@ -12927,7 +11224,7 @@ tree = {
 },
 "label": "",
 "offset": Vector2( 780, 940 ),
-"size": Vector2( 236, 89.0002 )
+"size": Vector2( 236, 89.0005 )
 },
 "name": "minim_node3",
 "type": 99
@@ -12945,7 +11242,7 @@ tree = {
 "fn": "task_maintainPosition",
 "offset": Vector2( 500, 1080 ),
 "params": [  ],
-"size": Vector2( 356, 85.0001 ),
+"size": Vector2( 356, 85.0005 ),
 "values": [  ]
 },
 "name": "task5",
@@ -12985,10 +11282,15 @@ tree = {
 } ],
 "data": {
 "offset": Vector2( -420, -20 ),
-"size": Vector2( 83.0005, 60.0572 )
+"size": Vector2( 83.0005, 60.0576 )
 },
 "name": "root",
 "type": 0
 }
 }
+enable = false
 _tree_id = "279908178876157455"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

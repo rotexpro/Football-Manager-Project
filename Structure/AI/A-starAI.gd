@@ -40,6 +40,8 @@ func _init(_grid):
 
 #All grid position generated are normalized to walkable and non-walkable nodes
 func normalizeNode(_player):
+	allPlayers = WorldSpace.matchPlayers
+	
 	var notWalkable:Array
 	
 	allPlayers.erase(_player)
@@ -48,7 +50,7 @@ func normalizeNode(_player):
 		var gridPosition = positionToGrid(player.global_position)
 		var gridNeighbours = getNeighbours(gridPosition)
 		notWalkable.append(gridPosition)
-		notWalkable.append_array(gridNeighbours)
+#		notWalkable.append_array(gridNeighbours)
 	
 	for node in notWalkable:
 		node.walkable = false
@@ -82,7 +84,7 @@ func positionToGrid(_position: Vector2):
 
 
 # Generates a path from source to destination
-func path(start:Vector2, end:Vector2):
+func path(start:Vector2, end:Vector2) -> Array:
 	startNode = positionToGrid(start)
 	targetNode = positionToGrid(end)
 	
@@ -113,6 +115,8 @@ func path(start:Vector2, end:Vector2):
 				
 				if (!openSet.has(neighbour)):
 					openSet.append(neighbour)
+	
+	return Array()
 
 
 func getDistance(nodeA:ArrayNode, nodeB:ArrayNode):
