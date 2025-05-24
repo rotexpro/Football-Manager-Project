@@ -210,7 +210,7 @@ func setLinkedList(list:LinkedList, player):
 		print("player added")
 	else:
 		print_debug("adding data to existing list")
-		print("running through " + String(list.size()) + "elements")
+		print("running through " + String(list.getSize()) + "elements")
 		while current.data.rating > player.rating and current.next != null:
 			print("moving to next element")
 			current = current.next
@@ -235,6 +235,7 @@ func setArrayRoles():
 		ratingArray[role] = ratingLinkedList.get(role).converttoArray()
 		print("list converted")
 
+# warning-ignore:unused_argument
 func setTactics(val):
 	tactics = Tactics.new()
 	pass

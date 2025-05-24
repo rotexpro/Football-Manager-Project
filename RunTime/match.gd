@@ -18,6 +18,10 @@ func _ready():
 	
 	var homeFieldpositions = $"Control/pitch-scene".homepositions()
 	var awayFieldpositions = $"Control/pitch-scene".awaypositions()
+	
+	WorldSpace.AWAY_POSITIONS = awayFieldpositions
+	WorldSpace.HOME_POSITIONS = homeFieldpositions
+	
 	WorldSpace.awayGoal = $"Control/pitch-scene".awayGoal
 	
 	var homeSquad = Database.clubTeam
@@ -30,8 +34,8 @@ func _ready():
 	grid.createGrid()
 	WorldSpace.grid = grid.getAstarGrid()
 	
-	var homeTeam = Team($HomeTeam, homeFieldpositions, homeSquad, TeamCreator.matchPlace.HOME)
-	var awayTeam = Team($AwayTeam, awayFieldpositions, oppSquad, TeamCreator.matchPlace.AWAY)
+	var homeTeam = Team($HomeTeam, homeFieldpositions, homeSquad, TeamCreator.matchPlace.HOME, "HOME")
+	var awayTeam = Team($AwayTeam, awayFieldpositions, oppSquad, TeamCreator.matchPlace.AWAY, "AWAY")
 	
 	var allPlayers:Array
 	allPlayers.append_array(homeTeam)
@@ -42,11 +46,12 @@ func _ready():
 	WorldSpace.FIELD_HEIGHT = $"Control/pitch-scene".gridPos.get("END").y - $"Control/pitch-scene".gridPos.get("START").y
 	
 
-func Team(holder:Node2D, fieldpositions, squad, matchplace):
+func Team(holder:Node2D, fieldpositions, squad, matchplace, teamSide:String):
 	var squadPlayers = TeamCreator.new().createTeam(fieldpositions, squad, matchplace)
 	for player in squadPlayers:
 		holder.add_child(player)
 		player.team = squadPlayers
+		player.teamSide = teamSide
 	return squadPlayers
 
 

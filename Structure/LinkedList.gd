@@ -14,7 +14,7 @@ var head: LinkedListNode = null
 var tail:LinkedListNode = head
 var size = 0
 
-func size():
+func getSize():
 	return size
 
 func addFirst(val):

@@ -3,23 +3,24 @@ extends Node2D
 var playerscript = load("res://player/player.gd")
 
 var kickOff:bool
+var player:Player
 
 func _ready():
 	$"Kick-off".enable = false
 	$Timer.wait_time = 2.0
 	$Timer.start()
+	player = get_parent()
 
 func task_kickOff(task):
-	var player = get_parent()
 	var passTarget = player.findPlayer("CMF")
-	while (!get_parent().withBall):
-		get_parent().move(WorldSpace.ball.global_position)
+	while (!player.withBall):
+		player.move(WorldSpace.ball.global_position)
 	passBall(passTarget)
 	WorldSpace.matchStart = true
 	task.succeed()
 
 func task_kickOffPlayer(task):
-	if get_parent().kickOffPlayer:
+	if player.kickOffPlayer:
 		task.succeed()
 	else:
 		task.failed()
@@ -31,7 +32,7 @@ func task_matchStart(task):
 		task.failed()
 
 func task_teamPossession(task):
-	if get_parent().teamPossession:
+	if player.teamPossession:
 		task.succeed()
 	else:
 		task.failed()
@@ -49,8 +50,9 @@ func task_condCrossBall(task):
 	pass
 
 func task_progressBall(task):
-	var targetPoints = get_parent().getPath(Vector2(625, 246))
-	print(targetPoints)
+	pass
+#	var targetPoints = player.getPath(Vector2(625, 246))
+#	print(targetPoints)
 
 func task_condProgressBall(task):
 	pass
@@ -113,7 +115,6 @@ func task_closeOppPassTarget(task):
 	pass
 
 func task_withBall(task):
-	var player = get_parent()
 	if player.withBall():
 		task.succeed()
 	else:
@@ -127,7 +128,7 @@ func task_shootBall(task):
 	task.succeed()
 
 func task_canShoot(task):
-	if get_parent().canShoot():
+	if player.canShoot():
 		task.succeed()
 	else:
 		task.failed()
@@ -142,13 +143,12 @@ func task_move(task):
 	pass
 
 func task_maintainPosition(task):
-#	var homePosUpdate = get_parent().calculate_optimal_position()
-#	var targetPoints = get_parent().getPath(Vector2(457, 261))
-	get_parent().moveWithPath(Vector2(457, 261))
+	var homePosUpdate:Vector2 = player.calculate_optimal_position()
+	print("This is the player pos for" + player.stats.playerName + " position: " + String(homePosUpdate))
+	player.move(homePosUpdate)
 	task.succeed()
 
 func passBall(target):
-	var player = get_parent()
 	var ball = player.ball
 	ball.moveBall(target,10)
 

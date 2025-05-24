@@ -14,3 +14,6 @@ var awayGoal
 
 var FIELD_WIDTH
 var FIELD_HEIGHT
+
+var HOME_POSITIONS
+var AWAY_POSITIONS

@@ -27,7 +27,7 @@ func createTeam(positions:Dictionary, squadPlayers, matchplace) -> Array:
 		print("player created")
 	return squadTeam
 
-func setPosition(positions,player,data,matchplace):
+func setPosition(positions,player:Player,data,matchplace):
 	player.stats = data
 	var role:String = player.stats.tempRole
 	var side = player.stats.position

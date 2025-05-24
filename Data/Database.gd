@@ -46,8 +46,6 @@ func getClubTeam():
 	print_debug("getting players for " + User.clubName + " from database")
 	db.path = db_name
 	var userName = User.userName
-	var teamName
-	var managerName
 	db.query("SELECT Players.name, Players.age, Players.attack, Players.speed,Players.defence, Players.cross, Players.pass, Players.curve, Players.physique, Players.form, Players.stamina, Players.dribble, Players.shot, Role.name as role, Country.name as country, user.club as club, user.name as manager FROM Players LEFT JOIN Role on Players.roleid = role.id JOIN Country on Players.countryid = Country.id JOIN user on Players.club = user.id WHERE manager = '" + userName + "'")
 	print(" Getting Query Results for club Team ")
 	print_debug(db.error_message)

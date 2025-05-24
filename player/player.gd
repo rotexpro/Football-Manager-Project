@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name Player
+
 var velocity = Vector2.ZERO
 
 var stats:Stats
@@ -24,15 +26,19 @@ var withBall:bool = true
 
 var tactics = Tactics.new()
 
+var isHomeSide:bool = false
+
 func _ready():
 	if team.find(self):
 		team.erase(self)
+	if teamSide == "HOME":
+		isHomeSide = true
 	AstarN = AstarNode.new(WorldSpace.grid)
 	move_and_slide(velocity)
 
 func _physics_process(delta):
 	AstarN.normalizeNode(self)
-	move_and_slide(velocity)
+	
 
 func findPlayer(role):
 	var target
@@ -45,6 +51,7 @@ func move(position):
 	if position != null:
 		var dir = position - self.global_position
 		velocity = dir * stats.speed * get_physics_process_delta_time()
+		move_and_slide(velocity)
 
 func moveWithPath(position):
 	var path:Array = getPath(position)
@@ -59,54 +66,99 @@ func withBall():
 		return true
 	return false
 
-func calculate_optimal_position():
-	var movetoposition: Vector2 = Vector2(420,111)
+func calculate_optimal_position() -> Vector2:
+	var movetoposition: Vector2 = fieldPosition
 	var ball_pos: Vector2 = ball.global_position
 	var center = ball_pos - WorldSpace.CENTER_POSITION
-	var fieldWidth = Vector2(WorldSpace.FIELD_WIDTH, WorldSpace.FIELD_HEIGHT)
-	var attackBias: float = tactics.attackBias
-	var pressureBias: float = 1 - attackBias
+	var attackBias: float = 2
+	var pressureBias: float = 1.0 - attackBias
+	var defenseLine: float = 3
+
+	var maxBallX = 308.0
+	var maxBallYUp = 73.0
+	var maxBallYDown = 302.0
+
+	if isHomeSide:
+		# Home side: attacking right
+		if center.x >= 10:
+			var base_move = center.x * ((pressureBias + defenseLine) / 2)
+			movetoposition.x = fieldPosition.x + base_move * get_role_line_bias(stats.role)
+		elif center.x <= -10:
+			movetoposition.x = calculate_defensive_x(stats.role, center.x, fieldPosition, true)
+
+		movetoposition.y = calculate_y_axis_adjustment(stats.role, center.y, fieldPosition, true)
+
+	else:
+		# Away side: attacking left
+		if center.x <= -10:
+			var base_move = -center.x * ((pressureBias + defenseLine) / 2)
+			movetoposition.x = fieldPosition.x - base_move * get_role_line_bias(stats.role)
+		elif center.x >= 10:
+			movetoposition.x = calculate_defensive_x(stats.role, center.x, fieldPosition, false)
+
+		movetoposition.y = calculate_y_axis_adjustment(stats.role, center.y, fieldPosition, false)
 
 	return movetoposition
 
 
-#func _ready():
-#	if Team.team == Team.TeamSide.HomeSide:
-#		$"FOOTBALL_PLAYER SPRITE".modulate = Color(0, 0, 1)
-#		homeside = true
-#	elif Team.team == Team.TeamSide.AwaySide:
-#		$"FOOTBALL_PLAYER SPRITE".modulate = Color(1, 0, 0)
-#		awayside = false
-#	hCBpos = Playerbase.hCBposition
-#	hCDMpos = Playerbase.hCDMposition
-#	aCBpos = Playerbase.aCBposition
-#	aCDMpos = Playerbase.aCDMposition
-#	pass
-#
-#
-#func _physics_process(delta):
-#	Playerbase.playerposition = self.global_position
-#	pressureBias = Tactics.pressurebias
-#	defenseBias = Tactics.defensebias
-#	ballpos = Team.ballPos
-#	LookAtBall()
-#	playerteam()
-##	trapball()
-#	velocity = move_and_slide(velocity)
-#
-##..........................................................................
-#
-#
-#
-#func cal_move():
-#	if self == Team.ClosestToBall:
-#		var direction = ballpos
-#		var self_pos = self.global_position
-#		var dir = direction - self_pos 
-#		velocity = dir * stats.speed * get_process_delta_time()
-#	else:
-#		velocity = Vector2.ZERO
-#
+func get_role_line_bias(role: String) -> float:
+	match role:
+		"GK": return 0.3
+		"CB": return 0.6
+		"CDM": return 0.5
+		"CMF": return 0.7
+		"AMF": return 0.3
+		"CF": return 0.4
+		_ : return 1.0
+
+
+func calculate_defensive_x(role: String, center_x: float, field_pos: Vector2, isHomeSide: bool) -> float:
+	var base_shift = abs(center_x / 308.0)
+	var pos_ref = WorldSpace.HOME_POSITIONS if isHomeSide else WorldSpace.AWAY_POSITIONS
+
+	match role:
+		"CMF", "AMF":
+			return field_pos.x + base_shift * ((pos_ref.CDM.x + (10 if isHomeSide else -10)) - field_pos.x)
+		"CB", "RB", "LB", "CDM", "GK":
+			return field_pos.x
+		"LWF", "RWF", "LMF", "RMF":
+			return field_pos.x + base_shift * ((pos_ref.CB.x + (50 if isHomeSide else -50) - field_pos.x) * 0.7)
+		"CF":
+			return field_pos.x + base_shift * ((pos_ref.CB.x + (50 if isHomeSide else -50) - field_pos.x) * 0.3)
+		_:
+			return field_pos.x
+
+
+func calculate_y_axis_adjustment(role: String, center_y: float, field_pos: Vector2, isHomeSide: bool) -> float:
+	var mpUP = Vector2(125.127, 99.781)
+	var mpDOWN = Vector2(125.127, 277.07)
+	var markUp = field_pos.y - 73
+	var markDown = field_pos.y - 302
+
+	if role == "GK":
+		if center_y <= -10:
+			return field_pos.y - ((1 - ((center_y + markUp) / markUp)) * (field_pos.y - mpUP.y) * 0.85)
+		elif center_y >= 10:
+			return field_pos.y - ((1 - ((center_y + markDown) / markDown)) * (field_pos.y - mpDOWN.y) * 0.85)
+
+	elif role in ["CDM", "CMF", "AMF", "CF"]:
+		var scale = 0.6
+		match role:
+			"CDM": scale = 0.5
+			"CMF": scale = 0.6
+			"AMF": scale = 1.0
+			"CF": scale = 0.8
+
+		if center_y >= 10:
+			return field_pos.y + ((mpDOWN.y - field_pos.y) * scale)
+		elif center_y <= -10:
+			return field_pos.y - ((1 - ((center_y + markUp) / markUp)) * (field_pos.y - mpUP.y) * scale)
+
+	elif role in ["RWF", "LWF"]:
+		if center_y <= -10:
+			return field_pos.y - ((1 - ((center_y + markUp) / markUp)) * (field_pos.y - (mpDOWN.y + 20)))
+
+	return field_pos.y
 
 #func withBall():
 #	if $Contact.ball:
