@@ -43,17 +43,17 @@ func setPosition(positions,player:Player,data,matchplace):
 		positionSpecs.LEFT:
 			var pos = positions.get(role) - Vector2(0,50)
 			print("player position for : " + player.stats.playerName + " with role : "+ player.stats.role + " is " + String(pos))
-			player.fieldPosition = pos
+			player.field_position = pos
 			player.global_position = pos
 		positionSpecs.RIGHT:
 			var pos = positions.get(role) + Vector2(0,50)
 			print("player position for : " + player.stats.playerName + " with role : "+ player.stats.role + " is " + String(pos))
-			player.fieldPosition = pos
+			player.field_position = pos
 			player.global_position = pos
 		positionSpecs.DEFAULT:
 			var pos = positions.get(role)
 			print("player position for : " + player.stats.playerName + " with role : "+ player.stats.role + " is " + String(pos))
-			player.fieldPosition = pos
+			player.field_position = pos
 			player.global_position = pos
 	match matchplace:
 		matchPlace.AWAY:
@@ -63,7 +63,7 @@ func setPosition(positions,player:Player,data,matchplace):
 			print("setting to kick-off player")
 			if player.stats.role == "CF":
 				player.global_position = positions.get("KICKOFF")
-				player.kickOffPlayer = true
+				player.is_kick_off_player = true
 				player.rotation_degrees = 180
 		_:
 			player.rotation_degrees = 0

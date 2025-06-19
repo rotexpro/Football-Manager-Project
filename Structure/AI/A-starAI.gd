@@ -40,7 +40,7 @@ func _init(_grid):
 
 #All grid position generated are normalized to walkable and non-walkable nodes
 func normalizeNode(_player):
-	allPlayers = WorldSpace.matchPlayers
+	allPlayers = WorldSpace.MATCH_PLAYERS
 	
 	var notWalkable:Array
 	

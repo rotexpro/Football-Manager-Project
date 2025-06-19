@@ -11,22 +11,27 @@ var sprint:bool
 
 var AstarN:AstarNode
 
-var fieldPosition:Vector2 
+var field_position:Vector2 
 
 var team:Array
-var teamPossession
 
-var teamSide
+var team_possession
+
+var team_side: String
 
 var ball = WorldSpace.ball
 
-var kickOffPlayer:bool
-
-var withBall:bool = true
+var is_kick_off_player:bool
 
 var tactics = Tactics.new()
 
 var is_home_side:bool = false
+
+var look_at_ball:bool = true
+var pass_ball:bool = false
+var move_ball:bool = false
+
+var is_receiving_pass: bool = false
 
 func _ready():
 	AstarN = AstarNode.new(WorldSpace.grid)
@@ -34,13 +39,25 @@ func _ready():
 
 func _physics_process(delta):
 	AstarN.normalizeNode(self)
+	if look_at_ball:
+		look_at_ball()
+	if with_ball() and !pass_ball and !move_ball:
+		ball.global_position = $Contact/CollisionShape2D.global_position
+	if (pass_ball or move_ball) and !with_ball():
+		yield(get_tree().create_timer(3.0), "timeout")
+		pass_ball = false
+		move_ball = false
+	if WorldSpace.TEAM_POSSESSION == team_side:
+		team_possession = true
+	else:
+		team_possession = false
 
 func findPlayer(role):
 	var target
 	for player in team:
 		if player.stats.role == role:
 			target = player
-	return target.global_position
+	return target
 
 func move(position):
 	if position != null:
@@ -51,48 +68,32 @@ func move(position):
 func moveWithPath(position):
 	var path:Array = getPath(position)
 	for step in path:
-		move(step.worldPosition)
+		var num = 0
+		if num == 0:
+			move(step.worldPosition)
+		while self.global_position != step.worldPosition and num != 0:
+			move(step.worldPosition)
+		num = num + 1
 
 func getPath(target:Vector2) -> Array:
 	return AstarN.path(self.global_position, target)
 
-func withBall():
+func with_ball():
 	if $Contact.ball:
 		return true
 	return false
 
 func calculate_optimal_position() -> Vector2:
-	var movetoposition: Vector2 = fieldPosition
+	var movetoposition: Vector2 = field_position
 	var ball_pos: Vector2 = ball.global_position
-	var center = ball_pos - WorldSpace.CENTER_POSITION
-	
-	var attackBias: float = 2
-	var pressureBias: float = 1.0 - attackBias
-	var defenseLine: float = 3
+	var ball_to_center_distance = ball_pos - WorldSpace.CENTER_POSITION
 
-	var field_mid_x = WorldSpace.CENTER_POSITION.x
-
-	# ──────────────────────────────────────────────
-	# HOME SIDE (Attacks right, ball to the right)
-	# ──────────────────────────────────────────────
 	if is_home_side:
-		movetoposition.x = calculate_x_position(stats.role, center.x, fieldPosition, true)
-		movetoposition.y = calculate_y_axis_adjustment(stats.role, center.y, fieldPosition, true)
-
-	# ──────────────────────────────────────────────
-	# AWAY SIDE (Attacks left, ball to the left)
-	# ──────────────────────────────────────────────
+		movetoposition.x = calculate_x_position(stats.role, ball_to_center_distance.x, field_position, true)
+		movetoposition.y = calculate_y_axis_adjustment(stats.role, ball_to_center_distance.y, field_position, true)
 	else:
-		movetoposition.x = calculate_x_position(stats.role, center.x, fieldPosition, false)
-		movetoposition.y = calculate_y_axis_adjustment(stats.role, center.y, fieldPosition, false)
-
-	# ──────────────────────────────────────────────
-	# Clamp player position to legal field bounds
-	# ──────────────────────────────────────────────
-	var mid = WorldSpace.CENTER_POSITION.x
-	var buffer = 10
-
-	movetoposition.y = clamp(movetoposition.y, WorldSpace.FIELD_HEIGHT_TOP, WorldSpace.FIELD_HEIGHT_BOTTOM)
+		movetoposition.x = calculate_x_position(stats.role, ball_to_center_distance.x, field_position, false)
+		movetoposition.y = calculate_y_axis_adjustment(stats.role, ball_to_center_distance.y, field_position, false)
 
 	return movetoposition
 
@@ -154,7 +155,7 @@ func calculate_y_axis_adjustment(role: String, ball_to_center_distance_y: float,
 			return field_pos.y + ball_to_center_distance_y * bias
 		"RWF", "LWF":
 			return field_pos.y + ball_to_center_distance_y * 0.1
-	return field_pos.y
+	return clamp(field_pos.y, WorldSpace.FIELD_HEIGHT_TOP, WorldSpace.FIELD_HEIGHT_BOTTOM)
 
 func look_at_ball():
 	self.look_at(ball.global_position)

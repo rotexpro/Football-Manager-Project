@@ -12,15 +12,13 @@ func _ready():
 	player = get_parent()
 
 func task_kickOff(task):
-	var passTarget = player.findPlayer("CMF")
-	while (!player.withBall):
-		player.move(WorldSpace.ball.global_position)
+	var passTarget:Player = player.findPlayer("CMF")
 	passBall(passTarget)
 	WorldSpace.matchStart = true
 	task.succeed()
 
 func task_kickOffPlayer(task):
-	if player.kickOffPlayer:
+	if player.is_kick_off_player:
 		task.succeed()
 	else:
 		task.failed()
@@ -32,7 +30,36 @@ func task_matchStart(task):
 		task.failed()
 
 func task_teamPossession(task):
-	if player.teamPossession:
+	if player.team_possession:
+		task.succeed()
+	else:
+		task.failed()
+
+func task_maintainPosition(task):
+	var homePosUpdate:Vector2 = player.calculate_optimal_position()
+	player.move(homePosUpdate)
+	task.succeed()
+
+func passBall(target:Player):
+	var ball = player.ball
+	player.pass_ball = true
+	target.is_receiving_pass = true
+	ball.moveBall(target.global_position, 0.3)
+
+func task_canShoot(task):
+	if player.canShoot():
+		task.succeed()
+	else:
+		task.failed()
+
+func task_goalAreaDetect(task):
+	if WorldSpace.goalDetected :
+		task.succeed()
+	else:
+		task.failed()
+
+func task_receive_pass(task):
+	if player.is_receiving_pass:
 		task.succeed()
 	else:
 		task.failed()
@@ -115,11 +142,10 @@ func task_closeOppPassTarget(task):
 	pass
 
 func task_withBall(task):
-	if player.withBall():
+	if player.with_ball():
 		task.succeed()
 	else:
 		task.failed()
-
 
 func task_passBall(task):
 	task.succeed()
@@ -127,30 +153,9 @@ func task_passBall(task):
 func task_shootBall(task):
 	task.succeed()
 
-func task_canShoot(task):
-	if player.canShoot():
-		task.succeed()
-	else:
-		task.failed()
-
-func task_goalAreaDetect(task):
-	if WorldSpace.goalDetected :
-		task.succeed()
-	else:
-		task.failed()
-
 func task_move(task):
 	pass
 
-func task_maintainPosition(task):
-	var homePosUpdate:Vector2 = player.calculate_optimal_position()
-#	print("This is the player pos for " + player.stats.playerName + " position: " + String(homePosUpdate))
-	player.move(homePosUpdate)
-	task.succeed()
-
-func passBall(target):
-	var ball = player.ball
-	ball.moveBall(target,10)
 
 func _on_Timer_timeout():
 	$"Kick-off".enable = true

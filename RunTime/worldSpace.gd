@@ -4,7 +4,7 @@ extends Node
 var grid
 
 # Players playing on the field
-var matchPlayers 
+var MATCH_PLAYERS:Array
 
 # Center position from the field
 var CENTER_POSITION
@@ -37,3 +37,5 @@ var AWAY_POSITIONS
 # Goal keeper line positions
 var GOAL_KEEPER_LINE_TOP
 var GOAL_KEEPER_LINE_BOTTOM
+
+var TEAM_POSSESSION: String
