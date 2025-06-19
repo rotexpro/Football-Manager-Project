@@ -144,14 +144,13 @@ func task_move(task):
 
 func task_maintainPosition(task):
 	var homePosUpdate:Vector2 = player.calculate_optimal_position()
-	print("This is the player pos for" + player.stats.playerName + " position: " + String(homePosUpdate))
+#	print("This is the player pos for " + player.stats.playerName + " position: " + String(homePosUpdate))
 	player.move(homePosUpdate)
 	task.succeed()
 
 func passBall(target):
 	var ball = player.ball
 	ball.moveBall(target,10)
-
 
 func _on_Timer_timeout():
 	$"Kick-off".enable = true

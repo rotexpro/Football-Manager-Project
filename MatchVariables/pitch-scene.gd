@@ -35,7 +35,9 @@ var awayPosDic:Dictionary = {
 
 var gridPos:Dictionary = {
 	"START" : Vector2(),
-	"END" : Vector2()
+	"END" : Vector2(),
+	"GOAL_KEEPER_BOX_TOP": Vector2(),
+	"GOAL_KEEPER_BOX_BOTTOM": Vector2()
 }
 
 onready var centerPos = $"pitch-positions/centre-line".global_transform.origin
@@ -84,6 +86,8 @@ func awaypositions():
 func grids():
 	gridPos["START"] = $Outfieldpositions/gridStartPos.global_transform.origin
 	gridPos["END"] = $Outfieldpositions/gridEndPos.global_transform.origin
+	gridPos["GOAL_KEEPER_BOX_TOP"] = $"pitch-positions/goal-keeper-line-top".global_transform.origin
+	gridPos["GOAL_KEEPER_BOX_BOTTOM"] = $"pitch-positions/goal-keeper-line-bottom".global_transform.origin
 	return gridPos
 
 

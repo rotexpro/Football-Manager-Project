@@ -123,6 +123,12 @@ position = Vector2( 692, 49 )
 [node name="cross-away-left" type="Position2D" parent="pitch-positions"]
 position = Vector2( 692, 324 )
 
+[node name="goal-keeper-line-top" type="Position2D" parent="pitch-positions"]
+position = Vector2( 585, 98 )
+
+[node name="goal-keeper-line-bottom" type="Position2D" parent="pitch-positions"]
+position = Vector2( 585, 276 )
+
 [node name="shot-area-left" parent="." instance=ExtResource( 2 )]
 position = Vector2( 3.17838, 2.11893 )
 

@@ -7,7 +7,6 @@ var Homegoal = 0
 
 
 var Astar:AstarNode
-
 var ball = preload("res://MatchVariables/Scenes/Ball.tscn").instance()
 
 func _ready():
@@ -45,13 +44,25 @@ func _ready():
 	WorldSpace.FIELD_WIDTH = $"Control/pitch-scene".gridPos.get("END").x - $"Control/pitch-scene".gridPos.get("START").x
 	WorldSpace.FIELD_HEIGHT = $"Control/pitch-scene".gridPos.get("END").y - $"Control/pitch-scene".gridPos.get("START").y
 	
+	WorldSpace.FIELD_WIDTH_START = $"Control/pitch-scene".gridPos.get("START").x
+	WorldSpace.FIELD_WIDTH_END = $"Control/pitch-scene".gridPos.get("END").x
+	
+	WorldSpace.FIELD_HEIGHT_TOP = $"Control/pitch-scene".gridPos.get("START").y
+	WorldSpace.FIELD_HEIGHT_BOTTOM = $"Control/pitch-scene".gridPos.get("END").y
+	
+	WorldSpace.GOAL_KEEPER_LINE_TOP = $"Control/pitch-scene".gridPos.get("GOAL_KEEPER_BOX_TOP").y
+	WorldSpace.GOAL_KEEPER_LINE_BOTTOM = $"Control/pitch-scene".gridPos.get("GOAL_KEEPER_BOX_BOTTOM").y
 
 func Team(holder:Node2D, fieldpositions, squad, matchplace, teamSide:String):
-	var squadPlayers = TeamCreator.new().createTeam(fieldpositions, squad, matchplace)
+	var squadPlayers = TeamCreator.new().createTeam(fieldpositions, squad, matchplace, teamSide)
 	for player in squadPlayers:
 		holder.add_child(player)
 		player.team = squadPlayers
 		player.teamSide = teamSide
+		if teamSide == "HOME":
+			player.is_home_side = true
+		if player.team.find(self):
+			player.team.erase(self)
 	return squadPlayers
 
 

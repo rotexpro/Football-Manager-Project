@@ -15,16 +15,24 @@ enum matchPlace{
 
 var playerResource = load("res://player/Scenes/player.tscn")
 
-func createTeam(positions:Dictionary, squadPlayers, matchplace) -> Array:
-	var squadTeam:Array
+func createTeam(positions: Dictionary, squadPlayers, matchplace, teamSide) -> Array:
+	var squadTeam: Array
 	print_debug("creating player objects")
+
 	for data in squadPlayers:
 		print_debug("instancing player object")
 		var player = playerResource.instance()
+
+		# ✅ Set red tint if team is AWAY
+		if teamSide == "AWAY":
+			player.modulate = Color(1, 0, 0)  # Red
+
 		print_debug("setting player position")
-		setPosition(positions,player,data,matchplace)
+		setPosition(positions, player, data, matchplace)
+
 		squadTeam.append(player)
 		print("player created")
+
 	return squadTeam
 
 func setPosition(positions,player:Player,data,matchplace):
