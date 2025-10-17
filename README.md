@@ -39,8 +39,8 @@ These brains cooperate, conflict, and evolve through matches, training, and chem
 Each player’s synergy index and understanding level form a “compatibility vector” with the team brain.
 The closer this vector is to the team’s strategic vector, the smoother the play and the better the team performance.
 
-## Player Brain
-🧠 1. Concept — What the Player Brain Represents
+### Player Brain
+#### 🧠 1. Concept — What the Player Brain Represents
 
 Each player has an internal neural network that:
 
@@ -56,7 +56,7 @@ In short:
 
 The Player Brain converts environment + team signals → decision + internal state update.
 
-🧩 2. Neural Architecture Overview
+#### 🧩 2. Neural Architecture Overview
 2.1 Input Layer (Perception)
 
 Inputs represent the world as the player “feels” it.
@@ -75,7 +75,7 @@ role_bias	Weight from tactical role (e.g. AMF, CB, etc.)
 
 → This becomes your input vector x (≈ 8–12 dimensions).
 
-2.2 Hidden Layer (Interpretation)
+##### 2.2 Hidden Layer (Interpretation)
 
 We simulate mental state neurons.
 Each neuron corresponds to a mental bias:
@@ -97,7 +97,7 @@ where σ = sigmoid or tanh activation.
 
 Hidden neurons form the personality pattern of the player.
 
-2.3 Output Layer (Decision)
+##### 2.3 Output Layer (Decision)
 
 Outputs represent action tendencies:
 
@@ -136,5 +136,6 @@ To see my thought process, look through this article on medium -> https://rotimi
 ## Youtube Video
 
 https://youtu.be/QHi0OK6mLyc
+
 
 
