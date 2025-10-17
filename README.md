@@ -18,6 +18,27 @@ The behaviour tree is a custom AI behaviour designed to control the movement of 
 ### Behaviour Tree Implementation
 ![FM_clone - bT](https://user-images.githubusercontent.com/53413092/185654892-f1060bd6-4dc5-44bd-938f-37da3f4d1508.png)
 
+## High-level Architecture of a Football Intelligence System (or “team brain”)
+### Three abstraction levels:
+
+🧠 High-level (Conceptual / Architectural) – what the team brain and player brain represent and how they interact.
+
+⚙️ Mid-level (Algorithmic / System design) – how to model their decision-making, adaptability, and compatibility.
+
+🔬 Low-level (Implementation / Data-driven) – how to represent and update these in code and data structures (later).
+
+## 🧠 HIGH-LEVEL OVERVIEW
+1. Core Idea
+
+Simulation represents intelligence through stats and interactions.
+Each player has a Player Brain, and each team has a Team Brain.
+These brains cooperate, conflict, and evolve through matches, training, and chemistry-building — much like neural learning.
+
+2. Key Concept: “Neural Harmony”
+
+Each player’s synergy index and understanding level form a “compatibility vector” with the team brain.
+The closer this vector is to the team’s strategic vector, the smoother the play and the better the team performance.
+
 ## SQLITE
 
 ![FM_clone - sqlite](https://user-images.githubusercontent.com/53413092/185654907-b0ade895-76b8-4dcb-bb3a-1d5716a3bc65.png)
@@ -37,3 +58,4 @@ To see my thought process, look through this article on medium -> https://rotimi
 ## Youtube Video
 
 https://youtu.be/QHi0OK6mLyc
+
